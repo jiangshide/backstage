@@ -14,7 +14,7 @@ type AdminController struct {
 
 func (this *AdminController) List() {
 	this.pageTitle("管理员管理")
-	this.display("backstage/admin/list")
+	this.display("admin/list")
 }
 
 func (this *AdminController) Add() {
@@ -30,7 +30,7 @@ func (this *AdminController) Add() {
 		list[k] = row
 	}
 	this.Data["role"] = list
-	this.display("backstage/admin/add")
+	this.display("admin/add")
 }
 
 func (this *AdminController) Edit() {
@@ -67,7 +67,7 @@ func (this *AdminController) Edit() {
 		list[k] = row
 	}
 	this.Data["role"] = list
-	this.display("backstage/admin/edit")
+	this.display("admin/edit")
 }
 
 func (this AdminController) AjaxSave() {

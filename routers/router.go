@@ -5,32 +5,32 @@ import (
 	"github.com/astaxie/beego"
 	"time"
 	"strings"
+	"github.com/jiangshide/GoComm/utils"
 )
 
 func init() {
-	beego.Router("/", &controllers.IndexController{})
+	beego.Router("/", &controllers.IndexController{}, "*:Index")
+	beego.Router("/home/start", &controllers.IndexController{}, "*:Start")
 	beego.Router("/login", &controllers.UserController{}, "*:Login")
 	beego.Router("/reg", &controllers.UserController{}, "*:Reg")
 	beego.Router("/admin", &controllers.UserController{}, "*:Admin")
 	beego.Router("/loginOut", &controllers.UserController{}, "*:LoginOut")
-	beego.Router("/backstage", &controllers.BackstageController{}, "*:Index")
-	beego.Router("/backstage/home/start", &controllers.BackstageController{}, "*:Start")
-	beego.Router("/backstage/user/edit", &controllers.UserController{}, "*:Edit")
+	beego.Router("/user/edit", &controllers.UserController{}, "*:Edit")
 
-	beego.Router("/backstage/admin/list", &controllers.AdminController{}, "*:List")
-	beego.Router("/backstage/admin/add", &controllers.AdminController{}, "*:Add")
-	beego.Router("/backstage/admin/edit", &controllers.AdminController{}, "*:Edit")
-	beego.Router("/backstage/admin/table", &controllers.AdminController{}, "*:Table")
+	beego.Router("/admin/list", &controllers.AdminController{}, "*:List")
+	beego.Router("/admin/add", &controllers.AdminController{}, "*:Add")
+	beego.Router("/admin/edit", &controllers.AdminController{}, "*:Edit")
+	beego.Router("/admin/table", &controllers.AdminController{}, "*:Table")
 
 	beego.AutoRouter(&controllers.AdminController{})
 
-	beego.Router("/backstage/role/list", &controllers.RoleController{}, "*:List")
-	beego.Router("/backstage/role/add", &controllers.RoleController{}, "*:Add")
-	beego.Router("/backstage/role/edit", &controllers.RoleController{}, "*:Edit")
-	beego.Router("/backstage/role/table", &controllers.RoleController{}, "*:Table")
+	beego.Router("/role/list", &controllers.RoleController{}, "*:List")
+	beego.Router("/role/add", &controllers.RoleController{}, "*:Add")
+	beego.Router("/role/edit", &controllers.RoleController{}, "*:Edit")
+	beego.Router("/role/table", &controllers.RoleController{}, "*:Table")
 	beego.AutoRouter(&controllers.RoleController{})
 
-	beego.Router("/backstage/auth/list", &controllers.AuthController{}, "*:List")
+	beego.Router("/auth/list", &controllers.AuthController{}, "*:List")
 	//beego.Router("/backstage/auth/add",&controllers.AuthController{},"*:Add")
 	//beego.Router("/backstage/auth/edit",&controllers.AuthController{},"*:Edit")
 	//beego.Router("/backstage/auth/table",&controllers.AuthController{},"*:Table")
@@ -41,13 +41,6 @@ func init() {
 	beego.Router("/upload", &controllers.BaseController{}, "*:Upload")
 	beego.ErrorController(&controllers.ErrorController{})
 
-	/**
-	 the api
-	 */
-	beego.Router("/api/user", &controllers.UserApiController{}, "*:Login")
-	beego.Router("/api/user", &controllers.UserApiController{}, "*:Reg")
-	beego.Router("/api/user", &controllers.UserApiController{}, "*:List")
-	beego.Router("/api/splash", &controllers.SpashApiController{}, "*:Splash")
 }
 
 func commRouter() {
@@ -85,7 +78,7 @@ func commRouter() {
 	router["api/key:"+actionStr] = &controllers.KeyController{}
 	for k, v := range router {
 		kArr := strings.Split(k, ":")
-		path := "/backstage/" + kArr[0]
+		path := "/" + kArr[0]
 		actions := strings.Split(kArr[1], ",")
 		for _, action := range actions {
 			rootPath := path

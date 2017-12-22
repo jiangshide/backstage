@@ -18,7 +18,7 @@ func (this *AuthController) Index() {
 func (this *AuthController) List() {
 	this.pageTitle("权限因子列表")
 	this.Data["zTree"] = true
-	this.display("backstage/auth/list")
+	this.display("auth/list")
 }
 
 func (this *AuthController) GetNodes() {

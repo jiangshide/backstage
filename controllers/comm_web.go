@@ -187,7 +187,7 @@ func (this *BaseWebController) AdminAuth() {
 	}
 	this.Data["SideMenu1"] = list[:i]
 	this.Data["SideMenu2"] = lists[:j]
-	this.allowUrl = allow_url + "/backstage/index"
+	this.allowUrl = allow_url + "/index"
 }
 
 func (this *BaseWebController) redirect(url string) {
@@ -203,26 +203,20 @@ func (this *BaseWebController) display(tpl ...string) {
 	} else {
 		tplName = this.controller + "/" + this.action + ".html"
 	}
-	if strings.Contains(tplName, "backstage") {
-		this.Layout = this.getBgAction("comm/layout.html")
-	}
+	this.Layout = "comm/layout.html"
 	this.TplName = tplName
 }
 
-func (this *BaseWebController) getBgAction(action string) string {
-	return "backstage/" + action
-}
-
 func (this *BaseWebController) getBgAreaAction(action string) string {
-	return this.getBgAction("area/" + action)
+	return "area/" + action
 }
 
 func (this *BaseWebController) getBgWebAction(action string) string {
-	return this.getBgAction("web/" + action)
+	return "web/" + action
 }
 
 func (this *BaseWebController) getBgToolAction(action string) string {
-	return this.getBgAction("tools/" + action)
+	return "tools/" + action
 }
 
 func (this *BaseWebController) getBgAppAction(action string) string {
@@ -230,11 +224,11 @@ func (this *BaseWebController) getBgAppAction(action string) string {
 }
 
 func (this *BaseWebController) getBgTestAction(action string) string {
-	return this.getBgAction("test/" + action)
+	return "test/" + action
 }
 
 func (this *BaseWebController) getBgApiAction(action string) string {
-	return this.getBgAction("api/" + action)
+	return "api/" + action
 }
 
 func (this *BaseWebController) ajaxMsg(msg interface{}, msgNo int) {
