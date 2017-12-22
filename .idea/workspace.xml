@@ -2,20 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ccfe5d0-9d49-4922-aed5-11b82f765f11" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/conf/app.conf" afterPath="$PROJECT_DIR$/conf/app.conf" />
-      <change beforePath="$PROJECT_DIR$/controllers/admin.go" afterPath="$PROJECT_DIR$/controllers/admin.go" />
-      <change beforePath="$PROJECT_DIR$/controllers/auth.go" afterPath="$PROJECT_DIR$/controllers/auth.go" />
-      <change beforePath="$PROJECT_DIR$/controllers/backstage.go" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/controllers/comm_web.go" afterPath="$PROJECT_DIR$/controllers/comm_web.go" />
-      <change beforePath="$PROJECT_DIR$/controllers/index.go" afterPath="$PROJECT_DIR$/controllers/index.go" />
-      <change beforePath="$PROJECT_DIR$/routers/router.go" afterPath="$PROJECT_DIR$/routers/router.go" />
-      <change beforePath="$PROJECT_DIR$/views/area/country/add.html" afterPath="$PROJECT_DIR$/views/area/country/add.html" />
-      <change beforePath="$PROJECT_DIR$/views/area/country/list.html" afterPath="$PROJECT_DIR$/views/area/country/list.html" />
-      <change beforePath="$PROJECT_DIR$/views/comm/upload.html" afterPath="$PROJECT_DIR$/views/comm/upload.html" />
-      <change beforePath="$PROJECT_DIR$/views/test/app/edit.html" afterPath="$PROJECT_DIR$/views/test/app/edit.html" />
-      <change beforePath="$PROJECT_DIR$/views/web/banner/add.html" afterPath="$PROJECT_DIR$/views/web/banner/add.html" />
-      <change beforePath="$PROJECT_DIR$/views/web/banner/edit.html" afterPath="$PROJECT_DIR$/views/web/banner/edit.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,8 +14,67 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="zd112_backstage@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="zd112_backstage@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="zd112_backstage@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="zd112_backstage: schema" type="c314c289:MysqlImplModel$Schema" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="router.go" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/routers/router.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="232">
+              <caret line="29" column="46" lean-forward="true" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controllers/index.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="comm_api.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controllers/comm_api.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="33" column="5" lean-forward="false" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="GOROOT" path="/usr/local/go" />
   <component name="Git.Settings">
@@ -73,7 +122,6 @@
         <option value="$PROJECT_DIR$/views/tools/qrcode/edit.html" />
         <option value="$PROJECT_DIR$/views/tools/qrcode/list.html" />
         <option value="$PROJECT_DIR$/views/web/banner/list.html" />
-        <option value="$PROJECT_DIR$/conf/app.conf" />
         <option value="$PROJECT_DIR$/routers/router.go" />
         <option value="$PROJECT_DIR$/views/comm/upload.html" />
         <option value="$PROJECT_DIR$/controllers/index.go" />
@@ -85,6 +133,7 @@
         <option value="$PROJECT_DIR$/views/test/app/edit.html" />
         <option value="$PROJECT_DIR$/views/web/banner/add.html" />
         <option value="$PROJECT_DIR$/views/web/banner/edit.html" />
+        <option value="$PROJECT_DIR$/conf/app.conf" />
       </list>
     </option>
   </component>
@@ -95,6 +144,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-312" />
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="873" />
@@ -136,45 +186,6 @@
               <item name="zd112_backstage" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="zd112_backstage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zd112_backstage" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="area" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zd112_backstage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zd112_backstage" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="area" type="462c0819:PsiDirectoryNode" />
-              <item name="country" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zd112_backstage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zd112_backstage" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zd112_backstage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zd112_backstage" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zd112_backstage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zd112_backstage" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zd112_backstage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zd112_backstage" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="banner" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -186,6 +197,7 @@
   <component name="PropertiesComponent">
     <property name="go.sdk.automatically.set" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -204,11 +216,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -223,6 +236,25 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -240,360 +272,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/views/test/app/list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="566">
-          <caret line="53" column="40" lean-forward="false" selection-start-line="53" selection-start-column="40" selection-end-line="53" selection-end-column="40" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/test/environment/add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-439">
-          <caret line="1" column="16" lean-forward="false" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/test/environment/edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-454">
-          <caret line="1" column="16" lean-forward="false" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/test/environment/list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="566">
-          <caret line="55" column="40" lean-forward="false" selection-start-line="55" selection-start-column="40" selection-end-line="55" selection-end-column="40" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/test/project/add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-19">
-          <caret line="33" column="25" lean-forward="false" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/test/project/edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="24" column="25" lean-forward="false" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/test/project/list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="53" column="30" lean-forward="true" selection-start-line="53" selection-start-column="30" selection-end-line="53" selection-end-column="30" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/tools/compress/add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="10" lean-forward="true" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/tools/compress/edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="17" column="47" lean-forward="false" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/tools/compress/list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="566">
-          <caret line="59" column="40" lean-forward="false" selection-start-line="59" selection-start-column="40" selection-end-line="59" selection-end-column="40" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/tools/format/type/add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="20" lean-forward="false" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/tools/format/type/edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="21" lean-forward="false" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/tools/format/type/list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="566">
-          <caret line="51" column="40" lean-forward="false" selection-start-line="51" selection-start-column="40" selection-end-line="51" selection-end-column="40" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/tools/format/add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="21" lean-forward="false" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/tools/format/edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="20" lean-forward="false" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/tools/format/list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="566">
-          <caret line="52" column="40" lean-forward="false" selection-start-line="52" selection-start-column="40" selection-end-line="52" selection-end-column="40" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/tools/qrcode/add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="16" lean-forward="false" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/tools/qrcode/edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="42" lean-forward="false" selection-start-line="32" selection-start-column="42" selection-end-line="32" selection-end-column="42" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/tools/qrcode/list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="521">
-          <caret line="48" column="39" lean-forward="false" selection-start-line="48" selection-start-column="39" selection-end-line="48" selection-end-column="39" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/user/edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1024">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/web/banner/list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="51" column="30" lean-forward="false" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="73" column="15" lean-forward="false" selection-start-line="73" selection-start-column="15" selection-end-line="73" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conf/app.conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="34" lean-forward="false" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="8" column="15" lean-forward="false" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/backstage.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="14" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routers/router.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="90" column="9" lean-forward="false" selection-start-line="90" selection-start-column="9" selection-end-line="90" selection-end-column="9" />
-          <folding>
-            <element signature="e#17#143#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/comm/button.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/comm/button_edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/comm/comm.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/comm/descript.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/comm/group_name.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/comm/head.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="6" lean-forward="true" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/comm/layout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/comm/name.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/comm/name_descript.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/comm/remarks.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="6" lean-forward="true" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/comm/upload.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="88" lean-forward="false" selection-start-line="4" selection-start-column="88" selection-end-line="4" selection-end-column="88" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/index.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/admin.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1620">
-          <caret line="114" column="1" lean-forward="false" selection-start-line="114" selection-start-column="1" selection-end-line="114" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/api.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-394">
@@ -630,14 +308,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-724">
           <caret line="34" column="21" lean-forward="false" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/comm_api.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-574">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -690,6 +360,605 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" column="18" lean-forward="true" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zd112_data.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-16254">
+          <caret line="157" column="30" lean-forward="false" selection-start-line="157" selection-start-column="30" selection-end-line="157" selection-end-column="30" />
+          <folding>
+            <marker date="1513926755000" expanded="true" signature="184:248" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="250:316" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="318:382" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="384:410" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="412:454" ph="/*!40103 SET... " />
+            <marker date="1513926755000" expanded="true" signature="456:490" ph="/*!40103 SET... " />
+            <marker date="1513926755000" expanded="true" signature="492:559" ph="/*!40014 SET... " />
+            <marker date="1513926755000" expanded="true" signature="561:643" ph="/*!40014 SET... " />
+            <marker date="1513926755000" expanded="true" signature="645:719" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="721:776" ph="/*!40111 SET... " />
+            <marker date="1513926755000" expanded="true" signature="831:867" ph="DROP TABLE I... " />
+            <marker date="1513926755000" expanded="true" signature="869:930" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="932:975" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="977:2111" ph="CREATE TABLE... zd_api_detail" />
+            <marker date="1513926755000" expanded="true" signature="2113:2168" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="2255:2307" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="2309:2360" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="2427:2460" ph="DROP TABLE I... " />
+            <marker date="1513926755000" expanded="true" signature="2462:2523" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="2525:2568" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="2570:3235" ph="CREATE TABLE... zd_api_key" />
+            <marker date="1513926755000" expanded="true" signature="3237:3292" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="3373:3422" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="3424:3472" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="3541:3576" ph="DROP TABLE I... " />
+            <marker date="1513926755000" expanded="true" signature="3578:3639" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="3641:3684" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="3686:4610" ph="CREATE TABLE... zd_api_param" />
+            <marker date="1513926755000" expanded="true" signature="4612:4667" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="4752:4803" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="4805:4855" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="4922:4955" ph="DROP TABLE I... " />
+            <marker date="1513926755000" expanded="true" signature="4957:5018" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="5020:5063" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="5065:5875" ph="CREATE TABLE... zd_api_src" />
+            <marker date="1513926755000" expanded="true" signature="5877:5932" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="6013:6062" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="6064:6112" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="6175:6204" ph="DROP TABLE I... " />
+            <marker date="1513926755000" expanded="true" signature="6206:6267" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="6269:6312" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="6314:7820" ph="CREATE TABLE... zd_app" />
+            <marker date="1513926755000" expanded="true" signature="7822:7877" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="7950:7995" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="7997:8041" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="8110:8145" ph="DROP TABLE I... " />
+            <marker date="1513926755000" expanded="true" signature="8147:8208" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="8210:8253" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="8255:8812" ph="CREATE TABLE... zd_app_build" />
+            <marker date="1513926755000" expanded="true" signature="8814:8869" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="8954:9005" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="9007:9057" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="9128:9165" ph="DROP TABLE I... " />
+            <marker date="1513926755000" expanded="true" signature="9167:9228" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="9230:9273" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="9275:9957" ph="CREATE TABLE... zd_app_channer" />
+            <marker date="1513926755000" expanded="true" signature="9959:10014" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="10103:10156" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="10158:10210" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="10278:10312" ph="DROP TABLE I... " />
+            <marker date="1513926755000" expanded="true" signature="10314:10375" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="10377:10420" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="10422:10966" ph="CREATE TABLE... zd_app_code" />
+            <marker date="1513926755000" expanded="true" signature="10968:11023" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="11106:11156" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="11158:11207" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="11274:11307" ph="DROP TABLE I... " />
+            <marker date="1513926755000" expanded="true" signature="11309:11370" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="11372:11415" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="11417:11961" ph="CREATE TABLE... zd_app_env" />
+            <marker date="1513926755000" expanded="true" signature="11963:12018" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="12099:12148" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="12150:12198" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="12266:12300" ph="DROP TABLE I... " />
+            <marker date="1513926755000" expanded="true" signature="12302:12363" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="12365:12408" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="12410:12985" ph="CREATE TABLE... zd_app_name" />
+            <marker date="1513926755000" expanded="true" signature="12987:13042" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="13125:13175" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="13177:13226" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="13294:13328" ph="DROP TABLE I... " />
+            <marker date="1513926755000" expanded="true" signature="13330:13391" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="13393:13436" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="13438:14011" ph="CREATE TABLE... zd_app_pkgs" />
+            <marker date="1513926755000" expanded="true" signature="14013:14068" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="14151:14201" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="14203:14252" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="14320:14354" ph="DROP TABLE I... " />
+            <marker date="1513926755000" expanded="true" signature="14356:14417" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="14419:14462" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="14464:15021" ph="CREATE TABLE... zd_app_type" />
+            <marker date="1513926755000" expanded="true" signature="15023:15078" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="15161:15211" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="15213:15262" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="15333:15370" ph="DROP TABLE I... " />
+            <marker date="1513926755000" expanded="true" signature="15372:15433" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="15435:15478" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="15480:16028" ph="CREATE TABLE... zd_app_version" />
+            <marker date="1513926755000" expanded="true" signature="16030:16085" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="16174:16227" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="16229:16281" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="16350:16385" ph="DROP TABLE I... " />
+            <marker date="1513926755000" expanded="true" signature="16387:16448" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="16450:16493" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="16495:17078" ph="CREATE TABLE... zd_area_city" />
+            <marker date="1513926755000" expanded="true" signature="17080:17135" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="17220:17271" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="17273:17404" ph="INSERT INTO `zd_area_city`... " />
+            <marker date="1513926755000" expanded="true" signature="17406:17456" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="17530:17570" ph="DROP TABLE I... " />
+            <marker date="1513926755000" expanded="true" signature="17572:17633" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="17635:17678" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="17680:18232" ph="CREATE TABLE... zd_area_continent" />
+            <marker date="1513926755000" expanded="true" signature="18234:18289" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="18384:18440" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="18442:18673" ph="INSERT INTO `zd_area_continent`... " />
+            <marker date="1513926755000" expanded="true" signature="18675:18730" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="18802:18840" ph="DROP TABLE I... " />
+            <marker date="1513926755000" expanded="true" signature="18842:18903" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="18905:18948" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="18950:19519" ph="CREATE TABLE... zd_area_country" />
+            <marker date="1513926755000" expanded="true" signature="19521:19576" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="19667:19721" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="19723:19776" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="19847:19884" ph="DROP TABLE I... " />
+            <marker date="1513926755000" expanded="true" signature="19886:19947" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="19949:19992" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="19994:20563" ph="CREATE TABLE... zd_area_county" />
+            <marker date="1513926755000" expanded="true" signature="20565:20620" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="20709:20762" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="20764:20816" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="20886:20922" ph="DROP TABLE I... " />
+            <marker date="1513926755000" expanded="true" signature="20924:20985" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="20987:21030" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="21032:21599" ph="CREATE TABLE... zd_area_group" />
+            <marker date="1513926755000" expanded="true" signature="21601:21656" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="21743:21795" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="21797:21848" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="21921:21960" ph="DROP TABLE I... " />
+            <marker date="1513926755000" expanded="true" signature="21962:22023" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="22025:22068" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="22070:22658" ph="CREATE TABLE... zd_area_province" />
+            <marker date="1513926755000" expanded="true" signature="22660:22715" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="22808:22863" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="22865:23010" ph="INSERT INTO `zd_area_province`... " />
+            <marker date="1513926755000" expanded="true" signature="23012:23066" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="23137:23174" ph="DROP TABLE I... " />
+            <marker date="1513926755000" expanded="true" signature="23176:23237" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="23239:23282" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="23284:23872" ph="CREATE TABLE... zd_area_region" />
+            <marker date="1513926755000" expanded="true" signature="23874:23929" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="24018:24071" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="24073:24209" ph="INSERT INTO `zd_area_region`... " />
+            <marker date="1513926755000" expanded="true" signature="24211:24263" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="24333:24369" ph="DROP TABLE I... " />
+            <marker date="1513926755000" expanded="true" signature="24371:24432" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="24434:24477" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="24479:25094" ph="CREATE TABLE... zd_area_state" />
+            <marker date="1513926755000" expanded="true" signature="25096:25151" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="25238:25290" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="25292:25542" ph="INSERT INTO `zd_area_state`... " />
+            <marker date="1513926755000" expanded="true" signature="25544:25595" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="25664:25699" ph="DROP TABLE I... " />
+            <marker date="1513926755000" expanded="true" signature="25701:25762" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="25764:25807" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="25809:26375" ph="CREATE TABLE... zd_area_team" />
+            <marker date="1513926755000" expanded="true" signature="26377:26432" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="26517:26568" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="26570:26620" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="26689:26724" ph="DROP TABLE I... " />
+            <marker date="1513926755000" expanded="true" signature="26726:26787" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="26789:26832" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="26834:27400" ph="CREATE TABLE... zd_area_town" />
+            <marker date="1513926755000" expanded="true" signature="27402:27457" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="27542:27593" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="27595:27645" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="27717:27755" ph="DROP TABLE I... " />
+            <marker date="1513926755000" expanded="true" signature="27757:27818" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="27820:27863" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="27865:28434" ph="CREATE TABLE... zd_area_village" />
+            <marker date="1513926755000" expanded="true" signature="28436:28491" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="28582:28636" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="28638:28691" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="28757:28789" ph="DROP TABLE I... " />
+            <marker date="1513926755000" expanded="true" signature="28791:28852" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="28854:28897" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="28899:29453" ph="CREATE TABLE... zd_nation" />
+            <marker date="1513926755000" expanded="true" signature="29455:29510" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="29589:29637" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="29639:34478" ph="INSERT INTO `zd_nation`... " />
+            <marker date="1513926755000" expanded="true" signature="34480:34527" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="34595:34629" ph="DROP TABLE I... " />
+            <marker date="1513926755000" expanded="true" signature="34631:34692" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="34694:34737" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="34739:35462" ph="CREATE TABLE... zd_set_code" />
+            <marker date="1513926755000" expanded="true" signature="35464:35519" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="35602:35652" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="35654:35703" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="35770:35803" ph="DROP TABLE I... " />
+            <marker date="1513926755000" expanded="true" signature="35805:35866" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="35868:35911" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="35913:36635" ph="CREATE TABLE... zd_set_evn" />
+            <marker date="1513926755000" expanded="true" signature="36637:36692" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="36773:36822" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="36824:36872" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="36941:36976" ph="DROP TABLE I... " />
+            <marker date="1513926755000" expanded="true" signature="36978:37039" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="37041:37084" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="37086:37705" ph="CREATE TABLE... zd_set_group" />
+            <marker date="1513926755000" expanded="true" signature="37707:37762" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="37847:37898" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="37900:37950" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="38026:38068" ph="DROP TABLE I... " />
+            <marker date="1513926755000" expanded="true" signature="38070:38131" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="38133:38176" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="38178:38962" ph="CREATE TABLE... zd_test_environment" />
+            <marker date="1513926755000" expanded="true" signature="38964:39019" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="39118:39176" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="39178:39398" ph="INSERT INTO `zd_test_environment`... " />
+            <marker date="1513926755000" expanded="true" signature="39400:39457" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="39529:39567" ph="DROP TABLE I... " />
+            <marker date="1513926755000" expanded="true" signature="39569:39630" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="39632:39675" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="39677:40641" ph="CREATE TABLE... zd_test_project" />
+            <marker date="1513926755000" expanded="true" signature="40643:40698" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="40789:40843" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="40845:40898" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="40967:41002" ph="DROP TABLE I... " />
+            <marker date="1513926755000" expanded="true" signature="41004:41065" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="41067:41110" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="41112:41715" ph="CREATE TABLE... zd_test_test" />
+            <marker date="1513926755000" expanded="true" signature="41717:41772" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="41857:41908" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="41910:41960" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="42034:42074" ph="DROP TABLE I... " />
+            <marker date="1513926755000" expanded="true" signature="42076:42137" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="42139:42182" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="42184:43156" ph="CREATE TABLE... zd_tools_compress" />
+            <marker date="1513926755000" expanded="true" signature="43158:43213" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="43308:43364" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="43366:43421" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="43493:43531" ph="DROP TABLE I... " />
+            <marker date="1513926755000" expanded="true" signature="43533:43594" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="43596:43639" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="43641:44251" ph="CREATE TABLE... zd_tools_format" />
+            <marker date="1513926755000" expanded="true" signature="44253:44308" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="44399:44453" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="44455:48531" ph="INSERT INTO `zd_tools_format`... " />
+            <marker date="1513926755000" expanded="true" signature="48533:48586" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="48663:48706" ph="DROP TABLE I... " />
+            <marker date="1513926755000" expanded="true" signature="48708:48769" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="48771:48814" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="48816:49364" ph="CREATE TABLE... zd_tools_format_type" />
+            <marker date="1513926755000" expanded="true" signature="49366:49421" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="49522:49581" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="49583:49740" ph="INSERT INTO `zd_tools_format_type`... " />
+            <marker date="1513926755000" expanded="true" signature="49742:49800" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="49872:49910" ph="DROP TABLE I... " />
+            <marker date="1513926755000" expanded="true" signature="49912:49973" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="49975:50018" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="50020:50595" ph="CREATE TABLE... zd_tools_qrcode" />
+            <marker date="1513926755000" expanded="true" signature="50597:50652" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="50743:50797" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="50799:50852" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="50920:50954" ph="DROP TABLE I... " />
+            <marker date="1513926755000" expanded="true" signature="50956:51017" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="51019:51062" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="51064:52269" ph="CREATE TABLE... zd_uc_admin" />
+            <marker date="1513926755000" expanded="true" signature="52271:52326" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="52409:52459" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="52461:52838" ph="INSERT INTO `zd_uc_admin`... " />
+            <marker date="1513926755000" expanded="true" signature="52840:52889" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="52956:52989" ph="DROP TABLE I... " />
+            <marker date="1513926755000" expanded="true" signature="52991:53052" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="53054:53097" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="53099:54092" ph="CREATE TABLE... zd_uc_auth" />
+            <marker date="1513926755000" expanded="true" signature="54094:54149" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="54230:54279" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="54281:59045" ph="INSERT INTO `zd_uc_auth`... " />
+            <marker date="1513926755000" expanded="true" signature="59047:59095" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="59162:59195" ph="DROP TABLE I... " />
+            <marker date="1513926755000" expanded="true" signature="59197:59258" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="59260:59303" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="59305:59954" ph="CREATE TABLE... zd_uc_role" />
+            <marker date="1513926755000" expanded="true" signature="59956:60011" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="60092:60141" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="60143:60275" ph="INSERT INTO `zd_uc_role`... " />
+            <marker date="1513926755000" expanded="true" signature="60277:60325" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="60397:60435" ph="DROP TABLE I... " />
+            <marker date="1513926755000" expanded="true" signature="60437:60498" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="60500:60543" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="60545:60805" ph="CREATE TABLE... zd_uc_role_auth" />
+            <marker date="1513926755000" expanded="true" signature="60807:60862" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="60953:61007" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="61009:61127" ph="INSERT INTO `zd_uc_role_auth`... " />
+            <marker date="1513926755000" expanded="true" signature="61129:61182" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="61252:61288" ph="DROP TABLE I... " />
+            <marker date="1513926755000" expanded="true" signature="61290:61351" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="61353:61396" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="61398:62154" ph="CREATE TABLE... zd_web_banner" />
+            <marker date="1513926755000" expanded="true" signature="62156:62211" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="62298:62350" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="62352:62803" ph="INSERT INTO `zd_web_banner`... " />
+            <marker date="1513926755000" expanded="true" signature="62805:62856" ph="/*!40000 ALT... " />
+            <marker date="1513926755000" expanded="true" signature="62873:62913" ph="/*!40103 SET... " />
+            <marker date="1513926755000" expanded="true" signature="62916:62954" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="62956:63014" ph="/*!40014 SET... " />
+            <marker date="1513926755000" expanded="true" signature="63016:63064" ph="/*!40014 SET... " />
+            <marker date="1513926755000" expanded="true" signature="63066:63128" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="63130:63194" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="63196:63258" ph="/*!40101 SET... " />
+            <marker date="1513926755000" expanded="true" signature="63260:63300" ph="/*!40111 SET... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/app.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="41" lean-forward="false" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/8d315a80-4a3f-45c7-abbc-2877f5bb87ef/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/71bbf04f/8d315a80-4a3f-45c7-abbc-2877f5bb87ef/zd112_backstage.zd_uc_role_auth">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/71bbf04f/8d315a80-4a3f-45c7-abbc-2877f5bb87ef/zd112_backstage.zd_web_banner">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/71bbf04f/8d315a80-4a3f-45c7-abbc-2877f5bb87ef/zd112_backstage.zd_uc_role">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/71bbf04f/8d315a80-4a3f-45c7-abbc-2877f5bb87ef/zd112_backstage.zd_uc_auth">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/71bbf04f/8d315a80-4a3f-45c7-abbc-2877f5bb87ef/zd112_backstage.zd_uc_admin">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/71bbf04f/8d315a80-4a3f-45c7-abbc-2877f5bb87ef/zd112_backstage.zd_tools_qrcode">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/71bbf04f/8d315a80-4a3f-45c7-abbc-2877f5bb87ef/zd112_backstage.zd_tools_format_type">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/71bbf04f/8d315a80-4a3f-45c7-abbc-2877f5bb87ef/zd112_backstage.zd_tools_format">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/71bbf04f/8d315a80-4a3f-45c7-abbc-2877f5bb87ef/zd112_backstage.zd_tools_compress">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/71bbf04f/8d315a80-4a3f-45c7-abbc-2877f5bb87ef/zd112_backstage.zd_test_test">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/71bbf04f/8d315a80-4a3f-45c7-abbc-2877f5bb87ef/zd112_backstage.zd_test_project">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/71bbf04f/8d315a80-4a3f-45c7-abbc-2877f5bb87ef/zd112_backstage.zd_test_environment">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/71bbf04f/8d315a80-4a3f-45c7-abbc-2877f5bb87ef/zd112_backstage.zd_set_group">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/71bbf04f/8d315a80-4a3f-45c7-abbc-2877f5bb87ef/zd112_backstage.zd_set_evn">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/71bbf04f/8d315a80-4a3f-45c7-abbc-2877f5bb87ef/zd112_backstage.zd_set_code">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/71bbf04f/8d315a80-4a3f-45c7-abbc-2877f5bb87ef/zd112_backstage.zd_nation">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/71bbf04f/8d315a80-4a3f-45c7-abbc-2877f5bb87ef/zd112_backstage.zd_area_village">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/71bbf04f/8d315a80-4a3f-45c7-abbc-2877f5bb87ef/zd112_backstage.zd_area_town">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/71bbf04f/8d315a80-4a3f-45c7-abbc-2877f5bb87ef/zd112_backstage.zd_area_team">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/71bbf04f/8d315a80-4a3f-45c7-abbc-2877f5bb87ef/zd112_backstage.zd_area_state">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/71bbf04f/8d315a80-4a3f-45c7-abbc-2877f5bb87ef/zd112_backstage.zd_area_province">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/71bbf04f/8d315a80-4a3f-45c7-abbc-2877f5bb87ef/zd112_backstage.zd_area_region">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/71bbf04f/8d315a80-4a3f-45c7-abbc-2877f5bb87ef/zd112_backstage.zd_api_src">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/71bbf04f/8d315a80-4a3f-45c7-abbc-2877f5bb87ef/zd112_backstage.zd_app">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/71bbf04f/8d315a80-4a3f-45c7-abbc-2877f5bb87ef/zd112_backstage.zd_app_channer">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/71bbf04f/8d315a80-4a3f-45c7-abbc-2877f5bb87ef/zd112_backstage.zd_app_code">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/71bbf04f/8d315a80-4a3f-45c7-abbc-2877f5bb87ef/zd112_backstage.zd_app_name">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/71bbf04f/8d315a80-4a3f-45c7-abbc-2877f5bb87ef/zd112_backstage.zd_app_env">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/71bbf04f/8d315a80-4a3f-45c7-abbc-2877f5bb87ef/zd112_backstage.zd_app_pkgs">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/71bbf04f/8d315a80-4a3f-45c7-abbc-2877f5bb87ef/zd112_backstage.zd_app_version">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/71bbf04f/8d315a80-4a3f-45c7-abbc-2877f5bb87ef/zd112_backstage.zd_area_continent">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/71bbf04f/8d315a80-4a3f-45c7-abbc-2877f5bb87ef/zd112_backstage.zd_area_country">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/71bbf04f/8d315a80-4a3f-45c7-abbc-2877f5bb87ef/zd112_backstage.zd_area_county">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/71bbf04f/8d315a80-4a3f-45c7-abbc-2877f5bb87ef/zd112_backstage.zd_area_group">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/index.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/comm_api.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="33" column="5" lean-forward="false" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routers/router.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="29" column="46" lean-forward="true" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="46" />
           <folding />
         </state>
       </provider>
