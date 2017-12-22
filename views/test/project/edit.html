@@ -1,0 +1,54 @@
+<div class="layui-layout layui-layout-admin" style="padding-left:40px;margin-top: 20px;">
+    {{template "comm/remarks.html" .}}
+    <form class="layui-form" action="" method="post">
+        <div class="layui-form-item">
+            <label class="layui-form-label">名称</label>
+            <div class="layui-input-inline">
+                <input type="text" name="name" id="name" lay-verify="required" autocomplete="off" placeholder="名称"
+                       class="layui-input" value="{{.row.name}}">
+            </div>
+            <div class="layui-form-mid layui-word-aux">*</div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">所属</label>
+            <div class="layui-input-inline">
+                <select name="group_id" lay-verify="required" lay-search="" style="width:100%;">
+                    <option value="">请选择所属</option>
+                {{range .group}}
+                    <option value="{{.id}}" {{if .selected}}selected{{end}}>{{.name}}</option>
+                {{end}}
+                </select>
+            </div>
+            <div class="layui-form-mid layui-word-aux">*上级关联</div>
+            <div class="layui-btn-group demoTable" style="margin-top:3px;">
+                <a class="layui-btn layui-btn-sm layui-btn-normal" data-type="tabAdd"
+                   href="/test/environment">管理</a>
+            </div>
+        </div>
+    {{template "comm/upload_edit.html" .}}
+    </form>
+</div>
+<script>
+    var $;
+    layui.config({
+        base: "js/"
+    }).use(['form', 'element', 'layer', 'jquery'], function () {
+        var form = layui.form;
+        var $ = layui.jquery;
+
+        form.on('submit(sub)', function (data) {
+            var form_data = $("form").serialize()
+            $.post('{{urlfor "ProjectController.AjaxSave"}}', form_data, function (out) {
+                if (out.status == 0) {
+                    layer.msg("操作成功", {icon: 1}, function () {
+                        window.location.href = '{{urlfor "ProjectController.List"}}'
+                    })
+                } else {
+                    layer.msg(out.message)
+                }
+            }, "json");
+            return false
+        });
+        form.render();
+    });
+</script>

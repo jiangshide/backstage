@@ -1,0 +1,59 @@
+<div class="layui-layout layui-layout-admin" style="padding-left:20px;">
+    <div class="layui-btn-group demoTable" style="margin-top:10px;">
+        <a class="layui-btn" data-type="tabAdd" href="/area/country/add">新增</a>
+    </div>
+    <table class="layui-table"
+           lay-data="{width:'full-10',height:'full-105',url:'/area/country/table',page:true,id:'idTest'}"
+           lay-filter="event">
+        <thead>
+        <tr>
+            <th lay-data="{field:'id',width:80,fixed:true}">ID</th>
+            <th lay-data="{field:'name',width:200}">名称</th>
+            <th lay-data="{field:'parent',width:100}">类型</th>
+            <th lay-data="{field:'file', width:150,templet: '#img'}">图片</th>
+            {{template "comm/comm.html" .}}
+        </tr>
+        </thead>
+    </table>
+    <script id="img" type="text/html">
+        <img lay-data="<% d.icon %>" width="50px" height="50px" src="<% d.icon %>"/>
+    </script>
+    {{template "comm/comm_bar.html" .}}
+</div>
+<script>
+    var $;
+    layui.config({
+        open: '<%',
+        close: '%>',
+        base: "js/"
+    }).use(['table', 'element', 'layer', 'jquery'], function (obj) {
+        var table = layui.table;
+        var element = layui.element;
+        $ = layui.jquery;
+        table.on('tool(event)', function (obj) {
+            var data = obj.data;
+            if (obj.event === 'detail') {
+
+            } else if (obj.event === 'del') {
+                layer.confirm('真的删除[' + data.Name + ']么', function (index) {
+                    var jsData = {'id': data.Id};
+                    $.post('{{urlfor "CountryController.AjaxDel"}}', jsData, function (out) {
+                        if (out.status == 0) {
+                            layer.alert('删除成功', function (index) {
+                                layer.close(index);
+                                window.location.reload()
+                            })
+                        } else {
+                            layer.msg(out.message)
+                        }
+                    }, "json");
+                    obj.del();
+                    layer.close(index);
+                });
+            } else if (obj.event === 'edit') {
+                window.location.href = "/area/country/edit?id=" + data.Id
+            }
+        });
+    });
+
+</script>

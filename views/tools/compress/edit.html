@@ -1,0 +1,47 @@
+<div class="layui-layout layui-layout-admin" style="padding-left:40px;margin-top: 20px;">
+    <div style="margin:10px 0px">
+        <blockquote class="layui-elem-quote">
+            描述:...
+        </blockquote>
+    </div>
+    <form class="layui-form" action="" method="post">
+        <div class="layui-form-item">
+            <label class="layui-form-label">名称</label>
+            <div class="layui-input-inline">
+                <input type="text" name="name" id="name" lay-verify="required" autocomplete="on" placeholder="名称"
+                       class="layui-input" value="{{.row.Name}}">
+            </div>
+            <div class="layui-form-mid layui-word-aux">*</div>
+        </div>
+        <input type="hidden" name="format" value="{{.Format}}">
+        <input type="hidden" name="size" value="{{.row.Size}}">
+        <input type="hidden" name="resize" value="{{.row.Resize}}">
+        <input type="hidden" name="compress" value="{{.row.Compress}}">
+        <input type="hidden" name="downs" value="{{.row.Downs}}">
+    {{template "comm/upload_edit.html" .}}
+    </form>
+</div>
+<script>
+    var $;
+    layui.config({
+        base: "js/"
+    }).use(['form', 'element', 'layer', 'jquery'], function () {
+        var form = layui.form;
+        var $ = layui.jquery;
+
+        form.on('submit(sub)', function (data) {
+            var form_data = $("form").serialize()
+            $.post('{{urlfor "CompressController.AjaxSave"}}', form_data, function (out) {
+                if (out.status == 0) {
+                    layer.msg("操作成功", {icon: 1}, function () {
+                        window.location.href = '{{urlfor "CompressController.List"}}'
+                    })
+                } else {
+                    layer.msg(out.message)
+                }
+            }, "json");
+            return false
+        });
+        form.render();
+    });
+</script>

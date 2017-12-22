@@ -1,0 +1,27 @@
+{{template "comm/head.html"}}
+<div style="width: 100px;height: 200px;alignment: center;">
+{{.content}}
+</div>
+<script>
+    layui.use('layer', function(){
+        var layer = layui.layer;
+        var index = layer.open({
+            title:"系统提示",btn:[],time:5*1000,closeBtn:0,
+            content:"数据处理中，请稍等(<span id='timer'>30</span>)..."
+        });
+        var endtime = 5;
+        timer(endtime);
+        setTimeout(function () {
+            layer.close(index);
+            window.location.href = "/";
+        }, endtime*1000);
+    });
+    function timer(endTime){
+        if(endTime>0){
+            document.getElementById("timer").innerHTML = endTime;
+            endTime--;
+            setTimeout("timer("+endTime+")",1000);
+        }
+    }
+</script>
+{{template "comm/foot.html"}}

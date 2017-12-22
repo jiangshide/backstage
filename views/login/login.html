@@ -1,0 +1,52 @@
+{{template "comm/head.html"}}
+<div style="background-color: #8D8D8D">
+    <div class="layui-row"
+         style="width:70%;height: 50%;margin-left:15%;margin-top:10%;margin-left:15%;background-color:#2E2D3C;border-radius: 4px;padding: 10px;">
+        <div class="layui-col-xs6">
+            <img src="/static/img/login-bg.jpg" style="width: 100%;height: 100%;">
+            <div class="layui-input-block">
+                <label style="text-align: center;margin-top: 20px;font-size: 38px;color: #FD482C;">欢迎登录</label>
+                <label style="color: #8D8D8D;">您还没有账号=></label>
+                <button type="reset" class="layui-btn layui-btn-sm layui-btn-radius"><a href="/reg"
+                                                                                        style="color: white">注册</a>
+                </button>
+            </div>
+        </div>
+        <div class="layui-col-xs6" style="margin-top: 8%;">
+            <form class="layui-form" action="" method="post">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">用户名</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="username" required lay-verify="required" placeholder="账号|手机号|邮箱"
+                               autocomplete="off" class="layui-input">
+                    </div>
+                    <div class="layui-form-mid" style="color: #FD482C">*</div>
+                </div>
+                <div class="layui-form-item" style="margin-top: 7%;">
+                    <label class="layui-form-label">密码</label>
+                    <div class="layui-input-inline">
+                        <input type="password" name="password" required lay-verify="required" placeholder="请输入密码"
+                               autocomplete="off" class="layui-input">
+                    </div>
+                    <div class="layui-form-mid" style="color: #FD482C">*</div>
+                </div>
+                <div class="layui-form-item" style="margin-top: 7%;">
+                    <div class="layui-input-block">
+                        <button class="layui-btn login_btn" lay-submit="" lay-filter="login">登录</button>
+                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    layui.use(['layer', 'form'], function () {
+        var layer = layui.layer; //弹层
+        var form = layui.form;
+        var error_info = "{{.flash.error}}";
+        if (error_info) {
+            layer.msg(error_info, {time: 2000, offset: '50%'});
+        }
+    })
+</script>

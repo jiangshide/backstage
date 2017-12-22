@@ -1,0 +1,16 @@
+<div class="layui-form-item">
+    <label class="layui-form-label">所属</label>
+    <div class="layui-input-inline">
+        <select name="group_id" lay-verify="required" lay-search="" style="width:100%;">
+            <option value="">请选择所属</option>
+        {{range .Group}}
+            <option value="{{.Id}}" {{if .Selected}}Selected{{end}}>{{.Name}}</option>
+        {{end}}
+        </select>
+    </div>
+    <div class="layui-form-mid layui-word-aux">*上级关联</div>
+    <div class="layui-btn-group demoTable" style="margin-top:3px;">
+        <a class="layui-btn layui-btn-sm layui-btn-normal" data-type="tabAdd"
+           href="/area/province">管理</a>
+    </div>
+</div>

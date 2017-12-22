@@ -1,0 +1,30 @@
+<div class="layui-layout" style="padding-left:40px;margin-top:20px;">
+{{template "comm/remarks.html" .}}
+    <form class="layui-form" action="" method="post">
+    {{template "comm/group_name.html" .}}
+        {{template "comm/upload.html" .}}
+    </form>
+</div>
+<script>
+    var $;
+    layui.config({
+        base: "js/"
+    }).use(['form', 'element', 'layer', 'jquery'], function () {
+        var form = layui.form;
+        var $ = layui.jquery;
+
+        form.on('submit(sub)', function (data) {
+            var form_data = $("form").serialize()
+            $.post('{{urlfor "CountyController.AjaxSave"}}', form_data, function (out) {
+                if (out.status == 0) {
+                    layer.msg("操作成功", {icon: 1}, function () {
+                        window.location.reload()
+                    })
+                } else {
+                    layer.msg(out.message)
+                }
+            }, "json")
+        });
+        form.render();
+    });
+</script>
