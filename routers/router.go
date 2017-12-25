@@ -1,46 +1,39 @@
 package routers
 
 import (
-	"zd112_backstage/controllers"
+	"zd112/controllers"
 	"github.com/astaxie/beego"
 	"time"
+	"zd112/utils"
 	"strings"
-	"github.com/jiangshide/GoComm/utils"
 )
 
 func init() {
-	beego.Router("/", &controllers.IndexController{}, "*:Index")
-	beego.Router("/home/start", &controllers.IndexController{}, "*:Start")
-	beego.Router("/login", &controllers.UserController{}, "*:Login")
-	beego.Router("/reg", &controllers.UserController{}, "*:Reg")
-	beego.Router("/admin", &controllers.UserController{}, "*:Admin")
-	beego.Router("/loginOut", &controllers.UserController{}, "*:LoginOut")
-	beego.Router("/user/edit", &controllers.UserController{}, "*:Edit")
-
-	beego.Router("/admin/list", &controllers.AdminController{}, "*:List")
-	beego.Router("/admin/add", &controllers.AdminController{}, "*:Add")
-	beego.Router("/admin/edit", &controllers.AdminController{}, "*:Edit")
-	beego.Router("/admin/table", &controllers.AdminController{}, "*:Table")
-
-	beego.AutoRouter(&controllers.AdminController{})
-
-	beego.Router("/role/list", &controllers.RoleController{}, "*:List")
-	beego.Router("/role/add", &controllers.RoleController{}, "*:Add")
-	beego.Router("/role/edit", &controllers.RoleController{}, "*:Edit")
-	beego.Router("/role/table", &controllers.RoleController{}, "*:Table")
-	beego.AutoRouter(&controllers.RoleController{})
-
-	beego.Router("/auth/list", &controllers.AuthController{}, "*:List")
-	//beego.Router("/backstage/auth/add",&controllers.AuthController{},"*:Add")
-	//beego.Router("/backstage/auth/edit",&controllers.AuthController{},"*:Edit")
-	//beego.Router("/backstage/auth/table",&controllers.AuthController{},"*:Table")
-	beego.AutoRouter(&controllers.AuthController{})
-
-	commRouter()
-
-	beego.Router("/upload", &controllers.BaseController{}, "*:Upload")
-	beego.ErrorController(&controllers.ErrorController{})
-
+	beego.Info("---------sss1")
+	//beego.Router("/", &controllers.IndexController{})
+	//beego.Router("/home/start", &controllers.IndexController{}, "*:Start")
+	//beego.Router("/login", &controllers.UserController{}, "*:Login")
+	//beego.Router("/reg", &controllers.UserController{}, "*:Reg")
+	//beego.Router("/admin", &controllers.UserController{}, "*:Admin")
+	//beego.Router("/loginOut", &controllers.UserController{}, "*:LoginOut")
+	//beego.Router("/user/edit", &controllers.UserController{}, "*:Edit")
+	//
+	//beego.Router("/role/list", &controllers.RoleController{}, "*:List")
+	//beego.Router("/role/add", &controllers.RoleController{}, "*:Add")
+	//beego.Router("/role/edit", &controllers.RoleController{}, "*:Edit")
+	//beego.Router("/role/table", &controllers.RoleController{}, "*:Table")
+	//beego.AutoRouter(&controllers.RoleController{})
+	//
+	//beego.Router("/auth/list", &controllers.AuthController{}, "*:List")
+	////beego.Router("/backstage/auth/add",&controllers.AuthController{},"*:Add")
+	////beego.Router("/backstage/auth/edit",&controllers.AuthController{},"*:Edit")
+	////beego.Router("/backstage/auth/table",&controllers.AuthController{},"*:Table")
+	//beego.AutoRouter(&controllers.AuthController{})
+	//
+	//commRouter()
+	//
+	//beego.Router("/upload", &controllers.BaseController{}, "*:Upload")
+	//beego.ErrorController(&controllers.ErrorController{})
 }
 
 func commRouter() {

@@ -3,10 +3,15 @@ package controllers
 import (
 	"zd112_backstage/models"
 	"time"
+	"github.com/astaxie/beego"
 )
 
 type BannerController struct {
-	BaseWebController
+	BaseController
+}
+
+func init(){
+	beego.Info("-------------web")
 }
 
 func (this *BannerController) List() {

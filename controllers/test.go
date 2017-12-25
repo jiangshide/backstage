@@ -6,7 +6,7 @@ import (
 )
 
 type EnvironmnetController struct {
-	BaseWebController
+	BaseController
 }
 
 func (this *EnvironmnetController) List() {
@@ -74,7 +74,7 @@ func (this *EnvironmnetController) AjaxDel() {
 }
 
 type ProjectController struct {
-	BaseWebController
+	BaseController
 }
 
 func (this *ProjectController) List() {
@@ -156,7 +156,7 @@ func (this *ProjectController) AjaxDel() {
 }
 
 type TestController struct {
-	BaseWebController
+	BaseController
 }
 
 func (this *TestController) List() {

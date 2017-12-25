@@ -7,7 +7,7 @@ import (
 )
 
 type KeyController struct {
-	BaseWebController
+	BaseController
 }
 
 func (this *KeyController) List() {

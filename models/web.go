@@ -2,6 +2,7 @@ package models
 
 import (
 	"github.com/astaxie/beego/orm"
+	"github.com/astaxie/beego"
 )
 
 type Banner struct {
@@ -16,6 +17,10 @@ type Banner struct {
 	CreateTime int64  `json:"createTime"`
 	UpdateTime int64  `json:"updateTime"`
 	Views      int    `json:"views"`
+}
+
+func init(){
+	beego.Info("-----------web model")
 }
 
 func (this *Banner) TableName() string {

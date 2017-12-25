@@ -6,7 +6,7 @@ import (
 )
 
 type ChannelController struct {
-	BaseWebController
+	BaseController
 }
 
 func (this *ChannelController) List() {
@@ -72,7 +72,7 @@ func (this *ChannelController) AjaxDel() {
 }
 
 type AppNameController struct {
-	BaseWebController
+	BaseController
 }
 
 func (this AppNameController) List() {
@@ -137,7 +137,7 @@ func (this *AppNameController) AjaxDel() {
 }
 
 type PkgsController struct {
-	BaseWebController
+	BaseController
 }
 
 func (this PkgsController) List() {
@@ -202,7 +202,7 @@ func (this *PkgsController) AjaxDel() {
 }
 
 type VersionController struct {
-	BaseWebController
+	BaseController
 }
 
 func (this *VersionController) List() {
@@ -267,7 +267,7 @@ func (this *VersionController) AjaxDel() {
 }
 
 type CodeController struct {
-	BaseWebController
+	BaseController
 }
 
 func (this *CodeController) List() {
@@ -332,7 +332,7 @@ func (this *CodeController) AjaxDel() {
 }
 
 type EnvController struct {
-	BaseWebController
+	BaseController
 }
 
 func (this *EnvController) List() {
@@ -397,7 +397,7 @@ func (this *EnvController) AjaxDel() {
 }
 
 type BuildController struct {
-	BaseWebController
+	BaseController
 }
 
 func (this *BuildController) List() {
@@ -462,7 +462,7 @@ func (this *BuildController) AjaxDel() {
 }
 
 type TypeController struct {
-	BaseWebController
+	BaseController
 }
 
 func (this *TypeController) List() {
@@ -526,7 +526,7 @@ func (this *TypeController) AjaxDel() {
 }
 
 type AppController struct {
-	BaseWebController
+	BaseController
 }
 
 func (this *AppController) List() {

@@ -11,7 +11,7 @@ import (
 )
 
 type QrcodeController struct {
-	BaseWebController
+	BaseController
 }
 
 func (this *QrcodeController) List() {
@@ -78,7 +78,7 @@ func (this *QrcodeController) AjaxDel() {
 }
 
 type FormatTypeController struct {
-	BaseWebController
+	BaseController
 }
 
 func (this *FormatTypeController) List() {
@@ -142,7 +142,7 @@ func (this *FormatTypeController) AjaxDel() {
 }
 
 type FormatController struct {
-	BaseWebController
+	BaseController
 }
 
 func (this *FormatController) List() {
@@ -279,7 +279,7 @@ func (this *FormatController) addDb(name, format string, ) {
 }
 
 type CompressController struct {
-	BaseWebController
+	BaseController
 }
 
 func (this *CompressController) List() {

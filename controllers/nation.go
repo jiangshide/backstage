@@ -12,17 +12,17 @@ import (
 )
 
 type NationController struct {
-	BaseWebController
+	BaseController
 }
 
 func (this *NationController) List() {
 	this.pageTitle("民族列表")
-	this.display(this.getBgAction("nation/list"))
+	this.display("nation/list")
 }
 
 func (this *NationController) Add() {
 	this.pageTitle("新增民族名称")
-	this.display(this.getBgAction("nation/add"))
+	this.display("nation/add")
 }
 
 func (this *NationController) Edit() {
@@ -33,7 +33,7 @@ func (this *NationController) Edit() {
 		this.ajaxMsg(err.Error(), MSG_ERR)
 	}
 	this.row(nil, nation,true)
-	this.display(this.getBgAction("nation/edit"))
+	this.display("nation/edit")
 }
 
 func (this *NationController) AjaxSave() {
