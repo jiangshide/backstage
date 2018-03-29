@@ -1,0 +1,60 @@
+<div class="layui-layout layui-layout-admin" style="padding-left:20px;">
+    <div class="layui-btn-group demoTable" style="margin-top:10px;">
+        <a class="layui-btn" data-type="tabAdd" href="/web/nav/university/add">新增</a>
+    </div>
+    <table class="layui-table"
+           lay-data="{width:'full-10',height:'full-105',url:'/web/nav/university/table',page:true,id:'idTest'}"
+           lay-filter="nation">
+        <thead>
+        <tr>
+            <th lay-data="{field:'id',align:'center',width:'50',fixed:true}">ID</th>
+            <th lay-data="{field:'groupId',align:'center',width:'100'}">所属ID</th>
+            <th lay-data="{field:'name',align:'center',width:'100'}">名称</th>
+            <th lay-data="{field:'action',align:'center',width:'100'}">分类</th>
+            <th lay-data="{field:'descript',align:'center',width:'100'}">描述</th>
+            <th lay-data="{field:'views',align:'center',width:'100'}">展示次数</th>
+        {{template "comm/comm.html" .}}
+        </tr>
+        </thead>
+    </table>
+{{template "comm/comm_bar.html" .}}>
+</div>
+<script>
+    var $;
+    layui.config({
+        // base: "js/"
+    }).use(['laytpl', 'table', 'element', 'layer', 'jquery'], function (obj) {
+        var table = layui.table;
+        var element = layui.element;
+        var laytpl = layui.laytpl;
+
+        $ = layui.jquery;
+        table.on('tool(nation)', function (obj) {
+            var data = obj.data;
+
+            if (obj.event === 'detail') {
+
+            } else if (obj.event === 'del') {
+                layer.confirm('真的删除[' + data.name + ']么', function (index) {
+                    var jsData = {'id': data.id};
+                    $.post('{{urlfor "UniversityController.AjaxDel"}}', jsData, function (out) {
+                        if (out.status == 0) {
+                            layer.alert('删除成功', function (index) {
+                                layer.close(index);
+                                window.location.reload()
+                            })
+                        } else {
+                            layer.msg(out.message)
+                        }
+                    }, "json");
+                    obj.del();
+                    layer.close(index);
+                });
+            } else if (obj.event === 'edit') {
+                layer.alert('groupId:'+obj.groupId)
+                window.location.href = "/web/nav/university/edit?id=" + data.id
+            }
+        });
+    });
+
+</script>

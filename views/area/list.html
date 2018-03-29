@@ -1,0 +1,65 @@
+<div class="layui-layout layui-layout-admin" style="padding-left:20px;">
+    <div class="layui-btn-group demoTable" style="margin-top:10px;">
+        <a class="layui-btn" data-type="tabAdd" href="/area">洲</a>
+        <a class="layui-btn" data-type="tabAdd" href="/area">国家</a>
+        <a class="layui-btn" data-type="tabAdd" href="/area">省</a>
+        <a class="layui-btn" data-type="tabAdd" href="/area/add">新增</a>
+    </div>
+    <table class="layui-table"
+           lay-data="{width:'full-10',height:'full-105',url:'/area/table',page:true,id:'idTest'}"
+           lay-filter="area">
+        <thead>
+        <tr>
+            <th lay-data="{field:'id',align:'center',width:'50',fixed:true}">ID</th>
+            <th lay-data="{field:'parentId',align:'center',width:'50',fixed:true}">所属ID</th>
+            <th lay-data="{field:'name',align:'center',width:'100'}">名称</th>
+            <th lay-data="{field:'nameAb',align:'center',width:'80'}">简写</th>
+            <th lay-data="{field:'file',align:'center',width:'100'}">LOGO</th>
+            <th lay-data="{field:'nameCn',align:'center',width:'100'}">中文</th>
+            <th lay-data="{field:'nameEn',align:'center',width:'100'}">外文</th>
+            <th lay-data="{field:'zoneCode',align:'center',width:'100'}">区号</th>
+            <th lay-data="{field:'zipCode',align:'center',width:'100'}">邮编</th>
+            <th lay-data="{field:'areaCode',align:'center',width:'100'}">区域代码</th>
+            <th lay-data="{field:'timeDifference',align:'center',width:'50'}">时差</th>
+        {{template "comm/comm.html" .}}
+        </tr>
+        </thead>
+    </table>
+{{template "comm/comm_bar.html" .}}>
+</div>
+<script>
+    var $;
+    layui.config({
+        base: "js/"
+    }).use(['table', 'element', 'layer', 'jquery'], function (obj) {
+        var table = layui.table;
+        var element = layui.element;
+        $ = layui.jquery;
+        table.on('tool(area)', function (obj) {
+            var data = obj.data;
+
+            if (obj.event === 'detail') {
+
+            } else if (obj.event === 'del') {
+                layer.confirm('真的删除[' + data.name + ']么', function (index) {
+                    var jsData = {'id': data.id};
+                    $.post('{{urlfor "AreaController.AjaxDel"}}', jsData, function (out) {
+                        if (out.status == 0) {
+                            layer.alert('删除成功', function (index) {
+                                layer.close(index);
+                                window.location.reload()
+                            })
+                        } else {
+                            layer.msg(out.message)
+                        }
+                    }, "json");
+                    obj.del();
+                    layer.close(index);
+                });
+            } else if (obj.event === 'edit') {
+                window.location.href = "/area/edit?id=" + data.id
+            }
+        });
+    });
+
+</script>

@@ -4,20 +4,20 @@
     </div>
     <table class="layui-table"
            lay-data="{width:'full-10',height:'full-105',url:'/nation/table',page:true,id:'idTest'}"
-           lay-filter="event">
+           lay-filter="nation">
         <thead>
         <tr>
-            <th lay-data="{field:'Id',width:80,fixed:true}">ID</th>
-            <th lay-data="{field:'Name',width:200}">名称</th>
-            <th lay-data="{field:'file', width:150,templet: '#img'}">图片</th>
+            <th lay-data="{field:'id',align:'center',width:'50',fixed:true}">ID</th>
+            <th lay-data="{field:'name',align:'center',width:'100'}">名称</th>
+            <th lay-data="{field:'file',align:'center',width:'100'}">LOGO</th>
         {{template "comm/comm.html" .}}
         </tr>
         </thead>
     </table>
-    <script type="text/html" id="img">
-        <img lay-data="{field:'icon'}" width="50px" height="50px"/>
+    <script id="img" type="text/html">
+        <img lay-data="{{.d.file}}" width="100px" height="100px" alt="{{.d.file}}" src="{{.d.file}}"/>
     </script>
-{{template "comm/comm_bar.html" .}}
+{{template "comm/comm_bar.html" .}}>
 </div>
 <script>
     var $;
@@ -26,30 +26,32 @@
     }).use(['table', 'element', 'layer', 'jquery'], function (obj) {
         var table = layui.table;
         var element = layui.element;
-        $ = layui.jquery
-        table.on('tool(event)', function (obj) {
+        $ = layui.jquery;
+        table.on('tool(nation)', function (obj) {
             var data = obj.data;
+
             if (obj.event === 'detail') {
 
             } else if (obj.event === 'del') {
-                layer.confirm('[真删除[' + data.Name + ']么', function (index) {
-                    var jsDate = {'id': data.Id}
-                    $.post('{{urlfor "NationController.AjaxDel"}}', jsDate, function (out) {
+                layer.confirm('真的删除[' + data.name + ']么', function (index) {
+                    var jsData = {'id': data.id};
+                    $.post('{{urlfor "NationController.AjaxDel"}}', jsData, function (out) {
                         if (out.status == 0) {
-                            layer.alert('删除成功', {icon: 1}, function (index) {
+                            layer.alert('删除成功', function (index) {
                                 layer.close(index);
-                                window.location.reload();
-                            });
+                                window.location.reload()
+                            })
                         } else {
-                            layer.msg(out.message);
+                            layer.msg(out.message)
                         }
                     }, "json");
                     obj.del();
-                    layer.close(index)
+                    layer.close(index);
                 });
             } else if (obj.event === 'edit') {
-                window.location.href = "/nation/edit?id=" + data.Id
+                window.location.href = "/nation/edit?id=" + data.id
             }
         });
     });
+
 </script>

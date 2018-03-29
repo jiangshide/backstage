@@ -1,0 +1,54 @@
+<div class="layui-layout layui-layout-admin" style="padding-left:40px;margin-top: 20px;">
+{{template "comm/remarks.html" .}}
+    <form class="layui-form" action="" method="post">
+        <div class="layui-form-item">
+            <label class="layui-form-label">名称</label>
+            <div class="layui-input-inline">
+                <input type="text" name="name" id="name" lay-verify="required" autocomplete="on" placeholder="名称"
+                       class="layui-input" value="{{.row.name}}">
+            </div>
+            <div class="layui-form-mid layui-word-aux">*</div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">Action</label>
+            <div class="layui-input-inline">
+                <input type="text" name="action" id="action" autocomplete="on" placeholder="/xxx" class="layui-input"
+                       value="{{.row.action}}">
+            </div>
+            <div class="layui-form-mid layui-word-aux">跳转页面链接地址</div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">描述</label>
+            <div class="layui-input-inline">
+                <textarea placeholder="请输入内容" name="descript" va id="descript"
+                          class="layui-textarea">{{.row.descript}}</textarea>
+            </div>
+            <div class="layui-form-mid layui-word-aux">备注</div>
+        </div>
+    {{template "comm/button_edit.html" .}}
+    </form>
+</div>
+<script>
+    var $;
+    layui.config({
+        base: "js/"
+    }).use(['form', 'element', 'layer', 'jquery'], function () {
+        var form = layui.form;
+        var $ = layui.jquery;
+
+        form.on('submit(sub)', function (data) {
+            var form_data = $("form").serialize()
+            $.post('{{urlfor "NavController.AjaxSave"}}', form_data, function (out) {
+                if (out.status == 0) {
+                    layer.msg("操作成功", {icon: 1}, function () {
+                        window.location.href = '{{urlfor "NavController.List"}}'
+                    })
+                } else {
+                    layer.msg(out.message)
+                }
+            }, "json");
+            return false
+        });
+        form.render();
+    });
+</script>

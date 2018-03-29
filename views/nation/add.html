@@ -1,7 +1,14 @@
 <div class="layui-layout" style="padding-left:40px;margin-top:20px;">
 {{template "comm/remarks.html" .}}
     <form class="layui-form" action="" method="post">
-    {{template "comm/name.html" .}}
+        <div class="layui-form-item">
+            <label class="layui-form-label">名称</label>
+            <div class="layui-input-inline">
+                <input type="text" name="name" id="name" lay-verify="required" autocomplete="on" placeholder="名称"
+                       class="layui-input" value="">
+            </div>
+            <div class="layui-form-mid layui-word-aux">*英文，中文</div>
+        </div>
     {{template "comm/upload.html" .}}
     </form>
 </div>
@@ -15,16 +22,16 @@
 
         form.on('submit(sub)', function (data) {
             var form_data = $("form").serialize()
-            $.post('/nation/ajaxsave', form_data, function (out) {
-                alert("formdata:" + form_data + " | out:" + out)
+            $.post('{{urlfor "NationController.AjaxSave"}}', form_data, function (out) {
                 if (out.status == 0) {
                     layer.msg("操作成功", {icon: 1}, function () {
-                        window.location.reload()
+                        window.location.href = '{{urlfor "NationController.List"}}'
                     })
                 } else {
                     layer.msg(out.message)
                 }
-            }, "json")
+            }, "json");
+            return false
         });
         form.render();
     });

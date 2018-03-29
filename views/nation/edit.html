@@ -1,7 +1,14 @@
 <div class="layui-layout layui-layout-admin" style="padding-left:40px;margin-top: 20px;">
 {{template "comm/remarks.html" .}}
     <form class="layui-form" action="" method="post">
-    {{template "comm/name.html" .}}
+        <div class="layui-form-item">
+            <label class="layui-form-label">名称</label>
+            <div class="layui-input-inline">
+                <input type="text" name="name" id="name" lay-verify="required" autocomplete="on" placeholder="名称"
+                       class="layui-input" value="{{.row.name}}">
+            </div>
+            <div class="layui-form-mid layui-word-aux">*</div>
+        </div>
     {{template "comm/upload_edit.html" .}}
     </form>
 </div>

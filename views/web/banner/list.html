@@ -7,19 +7,19 @@
            lay-filter="nation">
         <thead>
         <tr>
-            <th lay-data="{field:'Id',align:'center',width:'50',fixed:true}">ID</th>
-            <th lay-data="{field:'Name',align:'center',width:'100'}">名称</th>
-            <th lay-data="{field:'File',align:'center',width:'100',templet: '#img'}">图片</th>
-            <th lay-data="{field:'Link',align:'center',width:'60'}">链接</th>
-            <th lay-data="{field:'Descript',align:'center',width:'100'}">描述</th>
-            <th lay-data="{field:'Clicks',align:'center',width:'100'}">点击次数</th>
-            <th lay-data="{field:'Views',align:'center',width:'100'}">展示次数</th>
+            <th lay-data="{field:'id',align:'center',width:'50',fixed:true}">ID</th>
+            <th lay-data="{field:'title',align:'center',width:'100'}">专题</th>
+            <th lay-data="{field:'name',align:'center',width:'100'}">名称</th>
+            <th lay-data="{field:'file',align:'center',width:'100'}">图片</th>
+            <th lay-data="{field:'link',align:'center',width:'60'}">链接</th>
+            <th lay-data="{field:'descript',align:'center',width:'100'}">描述</th>
+            <th lay-data="{field:'views',align:'center',width:'100'}">展示次数</th>
         {{template "comm/comm.html" .}}
         </tr>
         </thead>
     </table>
     <script id="img" type="text/html">
-        <img lay-data="{{.d.File}}" width="100px" height="100px" alt="{{.d.File}}" src="{{.d.File}}"/>
+        <img lay-data="{{.d.file}}" width="100px" height="100px" alt="{{.d.file}}" src="{{.d.file}}"/>
     </script>
 {{template "comm/comm_bar.html" .}}>
 </div>
@@ -37,8 +37,8 @@
             if (obj.event === 'detail') {
 
             } else if (obj.event === 'del') {
-                layer.confirm('真的删除[' + data.Name + ']么', function (index) {
-                    var jsData = {'id': data.Id};
+                layer.confirm('真的删除[' + data.name + ']么', function (index) {
+                    var jsData = {'id': data.id};
                     $.post('{{urlfor "BannerController.AjaxDel"}}', jsData, function (out) {
                         if (out.status == 0) {
                             layer.alert('删除成功', function (index) {
@@ -53,7 +53,7 @@
                     layer.close(index);
                 });
             } else if (obj.event === 'edit') {
-                window.location.href = "/web/banner/edit?id=" + data.Id
+                window.location.href = "/web/banner/edit?id=" + data.id
             }
         });
     });

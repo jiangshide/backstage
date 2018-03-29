@@ -2,24 +2,16 @@
     <label class="layui-form-label">Icon</label>
     <div class="layui-upload-drag layui-input-inline" id="uploadFile">
         <i class="layui-icon"></i>
-        <img class="layui-upload-img" id="img" style="width:150px;height:150px;" src="{{.row.File}}">
+        <img class="layui-upload-img" id="img" style="width:150px;height:150px;" src="{{.row.file}}">
         <input type="hidden" name="file" id="file" lay-verify="required" autocomplete="off" placeholder="icon"
-               class="layui-input" value="{{.row.File}}">
+               class="layui-input" value="{{.row.file}}">
         <p>点击上传,或将文件拖拽到此处</p>
     </div>
-    <div class="layui-form-mid layui-word-aux">*Logo</div>
+    <div class="layui-form-mid layui-word-aux">*支持格式:png|jpg</div>
 </div>
-<div class="layui-form-item">
-    <label class="layui-form-label"></label>
-    <div class="layui-input-inline">
-        <input type="button" id="loading" value="原始文件大小:{{.row.Size}}b">
-    </div>
-</div>
-<input type="hidden" id="id" name="id" value="{{.row.Id}}">
-<input type="hidden" id="create_id" name="create_id" value="{{.row.CreateId}}">
-<input type="hidden" id="create_time" name="create_time" value="{{.row.CreateTime}}">
-<input type="hidden" name="size" id="size" class="layui-input" value="{{.row.Size}}">
-<input type="hidden" name="resize" id="resize" class="layui-input" value="{{.row.Resize}}">
+<input type="hidden" id="id" name="id" value="{{.row.id}}">
+<input type="hidden" id="create_id" name="create_id" value="{{.row.createId}}">
+<input type="hidden" id="create_time" name="create_time" value="{{.row.createTime}}">
 <div class="layui-form-item">
     <div class="layui-input-block">
         <button class="layui-btn" lay-submit="" lay-filter="sub">立即提交</button>
@@ -34,27 +26,28 @@
         var $ = layui.jquery;
         var upload = layui.upload
         upload.render({
-            elem: '#uploadFile'
-            , accept: 'file'
+            elem: '#upload'
             , url: '/upload'
-            , before: function (obj) {
-                obj.preview(function (index, file, result) {
-                    $('#img').attr('src', result)
-                    $('#loading').attr('value', "压缩中...")
-                });
-            }
-            , done: function (res) {
-                $('#file').attr('value', res.message)
-                $('#img').attr('alt', res.message)
-                var size = res.size, resize = res.resize;
-                $('#size').attr('value', size)
-                $('#resize').attr('value', resize)
-                if (resize == 0) {
-                    $('#loading').attr('value', "原始文件大小" + size)
-                } else {
-                    var ratio = (resize / size) * 100
-                    $('#loading').attr('value', "原始文件大小" + size + "b  压缩后文件大小:" + resize + "b  压缩率:" + ratio.toFixed(2) + "%")
+            , accept: 'file'//'video'|'audio'
+            , size: 1024//上传最大尺寸限制kb
+            ,exts:'png|jpg'//只允许上传png|jpg格式图片
+            ,auto:true//自动上传
+            ,before:function (obj) {
+                obj.preview(function (index,file,result) {
+                    $('#img').attr('src',result)
+                })
+            },done:function (res) {
+                if(res.code > 0){
+                    return layer.msg('上传失败!');
                 }
+                $('#file').attr('value',res.message)
+            }
+            ,error:function () {
+                var falseImg = $('#falseImg');
+                falseImg.html('<span style="color:#FF5722;">上传失败!</span><a class="layui-btn layui-btn-mini demo-reload"">重试</a>');
+                falseImg.find('.demo-reload').on('click',function () {
+                    uploadInst.upload();
+                })
             }
         });
     });

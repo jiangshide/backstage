@@ -1,13 +1,13 @@
 package controllers
 
 import (
-	"zd112_backstage/models"
-	"github.com/astaxie/beego"
 	"fmt"
-	"net/http"
 	"io/ioutil"
-	"os"
 	"time"
+	"os"
+	"github.com/astaxie/beego"
+	"zd112_backstage/models"
+	"net/http"
 	"github.com/jiangshide/GoComm/utils"
 )
 
@@ -16,6 +16,11 @@ type NationController struct {
 }
 
 func (this *NationController) List() {
+	nation := new(models.Nation)
+	if _, count := nation.List(this.pageSize, this.offSet); count == 0 {
+		beego.Info("-------count:", count)
+		this.download()
+	}
 	this.pageTitle("民族列表")
 	this.display("nation/list")
 }
@@ -32,12 +37,11 @@ func (this *NationController) Edit() {
 	if err := nation.Query(); err != nil {
 		this.ajaxMsg(err.Error(), MSG_ERR)
 	}
-	this.row(nil, nation,true)
-	this.display("nation/edit")
+	this.row(nil, nation, true, "nation/edit")
 }
 
 func (this *NationController) AjaxSave() {
-	beego.Info("-----nation-----form:",this.Ctx.Request.Form)
+	beego.Info("-----nation-----form:", this.Ctx.Request.Form)
 	nation := new(models.Nation)
 	nation.Id = this.getId64(0)
 	nation.Name = this.getString("name", "名称不能为空!", 1)
@@ -47,10 +51,10 @@ func (this *NationController) AjaxSave() {
 		nation.CreateId = this.userId
 		nation.CreateTime = time.Now().Unix()
 		_, err = nation.Add()
-	}else{
+	} else {
 		nation.UpdateId = this.userId
 		nation.UpdateTime = time.Now().Unix()
-		_,err = nation.Update()
+		_, err = nation.Update()
 	}
 	if err != nil {
 		this.ajaxMsg(err.Error(), MSG_ERR)
@@ -63,7 +67,7 @@ func (this *NationController) Table() {
 	result, count := nation.List(this.pageSize, this.offSet)
 	list := make([]map[string]interface{}, len(result))
 	for k, v := range result {
-		this.parse(list, nil, k, v,false)
+		this.parse(list, nil, k, v, false)
 	}
 	this.ajaxList("成功", MSG_OK, count, list)
 }

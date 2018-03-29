@@ -1,0 +1,65 @@
+<div class="layui-layout layui-layout-admin" style="padding-left: 40px;margin-top: 20px;">
+    <div style="margin: 10px 0px">
+        <blockquote class="layui-elem-quote">
+            说明:用户管理～增加用户
+        </blockquote>
+    </div>
+    <form class="layui-form" action="" method="post">
+        <div class="layui-form-item">
+            <label class="layui-form-label">权限名称</label>
+            <div class="layui-input-inline">
+                <input type="text" name="name" id="name" lay-verify="required" autocomplete="off"
+                       placeholder="权限名称" class="layui-input">
+            </div>
+            <div class="layui-form-mid layui-word-aux">*登录不允许修改</div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">事件触发</label>
+            <div class="layui-input-inline">
+                <input type="text" name="action" id="action" lay-verify="required" autocomplete="off"
+                       placeholder="事件触发" class="layui-input">
+            </div>
+            <div class="layui-form-mid layui-word-aux">子菜单</div>
+            <div class="layui-btn-group demoTable" style="margin-top:3px;">
+                <a class="layui-btn layui-btn-sm layui-btn-normal" data-type="tabAdd"
+                   href="/backstage/area/province">管理</a>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">图标</label>
+            <div class="layui-input-inline">
+                <input type="text" name="icon" id="icon" lay-verify="required" autocomplete="off"
+                       placeholder="图标" class="layui-input">
+            </div>
+            <div class="layui-form-mid layui-word-aux"></div>
+        </div>
+
+
+    {{template "comm/button.html" .}}
+    </form>
+</div>
+<script>
+    var $;
+    layui.config({
+        base: "js/"
+    }).use(['form', 'element', 'layer', 'jquery'], function () {
+        var form = layui.form; //只有执行了这一步，部分表单元素才会自动修饰成功
+        var $ = layui.jquery;
+        form.on('submit(sub)', function (data) {
+            var form_data = $("form").serialize();
+            $.post('{{urlfor "UserAuthController.AjaxSave"}}', form_data, function (out) {
+                if (out.status == 0) {
+                    layer.msg("操作成功", {icon: 1}, function () {
+                        window.location.href = '{{urlfor "UserAuthController.List"}}'
+                    })
+                } else {
+                    layer.msg(out.message)
+                }
+            }, "json");
+            return false;
+        });
+        //但是，如果你的HTML是动态生成的，自动渲染就会失效
+        //因此你需要在相应的地方，执行下述方法来手动渲染，跟这类似的还有 element.init();
+        form.render();
+    });
+</script>

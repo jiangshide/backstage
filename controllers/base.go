@@ -10,11 +10,14 @@ import (
 	"github.com/jiangshide/tinify-go/tinify"
 	"strconv"
 	"reflect"
+	"net"
+	"github.com/pkg/errors"
 )
 
 const (
 	MSG_OK  = 0
 	MSG_ERR = -1
+	AUTH    = "auth"
 )
 
 type BaseController struct {
@@ -24,61 +27,113 @@ type BaseController struct {
 	action     string
 	userId     int64
 	userName   string
-	loginName  string
-	userIcon   string
-	isLogin    bool
+	parentId   int64
 	logo       string
 	page       int
 	pageSize   int
 	offSet     int
 	allowUrl   string
-	user       *models.Admin
-	defaultPsw string
 	upload     string
 }
 
-func init() {
-	beego.Info("--------------base--init")
-}
-
 var defaultTips = "该项不能为空!"
-var defaultMinSize = 6
+var defaultMinSize = 3
 
-func (this *BaseController) prepare() {
-	this.page, _ = this.GetInt("page", 1)
-	this.pageSize, _ = this.GetInt("limit", 30)
-	this.offSet = (this.page - 1) * this.pageSize
-	Tinify.SetKey("nDuD_n78YCCvgJ7F5CZ_gvbrpU4iRtoZ")
-
-	this.currParam()
-}
-
-func (this *BaseController) currParam() {
+func (this *BaseController) Prepare() {
 	controller, action := this.GetControllerAndAction()
 	this.controller = strings.ToLower(controller[0:len(controller)-10])
 	this.action = strings.ToLower(action)
-	this.userIcon = "/static/mingzu/img/3.jpg"
-	this.upload = "/static/upload/"
-	this.Data["route"] = this.controller + "." + this.action
-	this.Data["action"] = this.action
-	this.defaultPsw = beego.AppConfig.String("defaultPsw")
-	this.version = beego.AppConfig.String("version")
+	beego.Info("-----------controller:", this.controller, " | action:", this.action)
+	if this.controller == "permissionuser" && this.action == "login" {
+		if this.userId > 0 {
+			this.redirect("/")
+		}
+	} else {
+		this.Data["siteName"] = beego.AppConfig.String("site.app_name")
+		this.version = beego.AppConfig.String("version")
+		this.page, _ = this.GetInt("page", 1)
+		this.pageSize, _ = this.GetInt("limit", 30)
+		this.offSet = (this.page - 1) * this.pageSize
+		Tinify.SetKey(this.GetString("pic_key"))
+		this.upload = this.GetString("upload", "/static/upload/")
 
-	this.auth()
-	this.Data["userId"] = this.userId
-	this.Data["userName"] = this.userName
-	this.Data["userIcon"] = this.userIcon
-	this.Data["isLogin"] = this.isLogin
-	this.Data["logo"] = "/static/mingzu/img/11.jpg"
-	this.Data["version"] = this.version
-	this.Data["siteName"] = beego.AppConfig.String("site.app_name")
+		if user, err := this.auth(); user != nil {
+			this.userId = user.Id
+			this.userName = user.Name
+			this.Data["userId"] = this.userId
+			this.Data["userName"] = this.userName
+			var parentIds int64
+			parentIds, _ = beego.AppConfig.Int64("parentId")
+			if parentIds > 0 {
+				this.parentId = parentIds
+			}
+
+			beego.Info("--------userName:", this.userName, " | userId:", this.userId, " | upload:", this.upload, " | parentId:", this.parentId)
+		} else {
+			beego.Error(err)
+			this.redirect(beego.URLFor("UserController.Login"))
+		}
+	}
+
+}
+
+func (this *BaseController) parentIds() {
+	parentId := this.getInt64("parentId", 0)
+	if parentId > 0 {
+		beego.AppConfig.Set("parentId", fmt.Sprint(parentId))
+	}
+}
+
+func (this *BaseController) setCook(user *models.PermissionUser, time int) {
+	this.Ctx.SetCookie(AUTH, fmt.Sprint(user.Id)+"|"+utils.Md5(this.getIp()+"|"+user.Password+user.Salt), time)
+}
+
+func (this *BaseController) auth() (users *models.PermissionUser, errs error) {
+	cook := this.Ctx.GetCookie(AUTH)
+	if strings.Contains(cook, "|") {
+		cookArr := strings.Split(cook, "|")
+		user := new(models.PermissionUser)
+		user.Id, _ = strconv.ParseInt(cookArr[0], 11, 64)
+		if errs = user.Query(); errs == nil {
+			users = user
+			auth := new(models.PermissionAuth)
+			if result, count := auth.List(-1, 0); count > 0 {
+				sideMenu := make([]map[string]interface{}, count)
+				sideMenuChild := make([]map[string]interface{}, count)
+				i, j := 0, 0
+				for _, v := range result {
+					menu := make(map[string]interface{}, 0)
+					menu["Id"] = v.Id
+					menu["Pid"] = v.Pid
+					menu["Name"] = v.Name
+					menu["Action"] = v.Action
+					menu["Icon"] = v.Icon
+					menu["IsShow"] = v.IsShow
+					if v.IsShow == 1 {
+						if v.Pid == 1 {
+							sideMenu[i] = menu
+							i++
+						} else {
+							sideMenuChild[j] = menu
+							j++
+						}
+					}
+				}
+				this.Data["sideMenu"] = sideMenu[:i]
+				this.Data["sideMenuChild"] = sideMenuChild[:j]
+			} else {
+				errs = errors.New("还没有数据!")
+			}
+		}
+	}
+	return
 }
 
 func (this *BaseController) getInt(key string, defaultValue int) int {
 	resInt, err := this.GetInt(key, defaultValue)
 	if err != nil {
 		beego.Info("------------key:", key, " | err:", err)
-		this.showTips(err)
+		this.ajaxMsg(err, MSG_ERR)
 	}
 	return resInt
 }
@@ -87,7 +142,7 @@ func (this *BaseController) getInt64(key string, defaultValue int64) int64 {
 	resInt, err := this.GetInt64(key, defaultValue)
 	if err != nil {
 		beego.Info("--------key:", key, " | err:", err)
-		this.showTips(err)
+		this.ajaxMsg(err, MSG_ERR)
 	}
 	return resInt
 }
@@ -108,28 +163,19 @@ func (this *BaseController) getGroupId64(defaultValue int64) int64 {
 	return this.getInt64("groupId", defaultValue)
 }
 
-func (this *BaseController) showTips(errorMsg interface{}) {
-	flash := beego.NewFlash()
-	flash.Error(fmt.Sprint(errorMsg))
-	flash.Store(&this.Controller)
-	controller, action := this.GetControllerAndAction()
-	this.Redirect(beego.URLFor(controller+"."+action), 302)
-	this.StopRun()
-}
-
-func (this *BaseController) getString(key, tips string, minSize int) string {
-	value := strings.TrimSpace(this.GetString(key, ""))
+func (this *BaseController) getString(key, tips string, minSize int) (value string) {
+	value = strings.TrimSpace(this.GetString(key, ""))
 	errorMsg := ""
 	if len(value) == 0 {
 		errorMsg = tips
 	} else if len(value) < minSize {
-		errorMsg = "长度不能小于" + fmt.Sprint(minSize) + "字符"
+		errorMsg = "长度不能小于" + fmt.Sprint(minSize) + "字符:" + value
 	}
 	if errorMsg != "" {
 		beego.Info("--------------key:", key, " | errorMsg:", errorMsg)
-		this.showTips(errorMsg)
+		this.ajaxMsg(errorMsg, MSG_ERR)
 	}
-	return value
+	return
 }
 
 func (this *BaseController) pageTitle(pageTitle string) {
@@ -137,12 +183,12 @@ func (this *BaseController) pageTitle(pageTitle string) {
 }
 
 func (this *BaseController) redirect(url string) {
+	beego.Info("------------redirect:", url)
 	this.Redirect(url, 302)
 	this.StopRun()
 }
 
 func (this *BaseController) display(tpl ...string) {
-	this.currParam()
 	var tplName string
 	if len(tpl) > 0 {
 		tplName = strings.Join([]string{tpl[0], "html"}, ".")
@@ -153,8 +199,8 @@ func (this *BaseController) display(tpl ...string) {
 	this.TplName = tplName
 }
 
-func (this *BaseController) getBgUserAction(action string) string {
-	return "user/" + action
+func (this *BaseController) getBgPermissionAction(action string) string {
+	return "permission/" + action
 }
 
 func (this *BaseController) getBgAreaAction(action string) string {
@@ -198,12 +244,15 @@ func (this *BaseController) ajaxList(msg interface{}, msgNo int, count int64, da
 	out["data"] = data
 	this.Data["json"] = out
 	this.Data["data"] = data
+	beego.Info("-----------1----msg:",msg," | msgNo",msgNo," | count:",count," | data:",data)
 	this.ServeJSON()
 	this.StopRun()
 }
 
-func (this *BaseController) row(row map[string]interface{}, model interface{}, isEdit bool) {
+func (this *BaseController) row(row map[string]interface{}, model interface{}, isEdit bool, displayUrl string) {
 	this.Data["row"] = this.relectRow(row, model, 0, isEdit)
+	beego.Info("displayUrl:", displayUrl)
+	this.display(displayUrl)
 }
 
 func (this *BaseController) parse(list []map[string]interface{}, row map[string]interface{}, k int, v interface{}, isEdit bool) {
@@ -230,18 +279,25 @@ func (this *BaseController) relectRow(row map[string]interface{}, v interface{},
 	if row == nil {
 		row = make(map[string]interface{})
 	}
+
+	var parentId int64
 	for i := 0; i < size; i++ {
 		v := value.Field(i)
 		fieldName = field.Field(i).Name
-		if fieldName == "Id" && id > 0 {
-			if v.Int() == id {
-				row["Selected"] = true
-			} else {
-				row["Selected"] = false
+		link := field.Field(i).Tag.Get("link")
+		fieldName = utils.StrFirstToLower(fieldName)
+		if fieldName == "id" {
+			if id > 0 {
+				if v.Int() == id {
+					row["selected"] = true
+				} else {
+					row["selected"] = false
+				}
 			}
-			row[fieldName] = v.Int()
-			continue
+			parentId = v.Int()
+			//continue
 		}
+
 		switch value.Field(i).Kind() {
 		case reflect.Bool:
 			row[fieldName] = v.Bool()
@@ -250,34 +306,34 @@ func (this *BaseController) relectRow(row map[string]interface{}, v interface{},
 				row[fieldName] = v.Int()
 			}
 		case reflect.Int64:
-			if fieldName == "CreateTime" {
+			if fieldName == "createTime" {
 				if v.Int() > 0 && isEdit {
 					row[fieldName] = v.Int()
 				} else {
-					row["CreateTimeFormat"] = beego.Date(time.Unix(v.Int(), 0), "Y-m-d H:i:s")
+					row["createTimeFormat"] = beego.Date(time.Unix(v.Int(), 0), "Y-m-d H:i:s")
 				}
 				continue
 			}
-			if fieldName == "UpdateTime" {
+			if fieldName == "updateTime" {
 				if v.Int() > 0 && !isEdit {
-					row["UpdateTimeFormat"] = beego.Date(time.Unix(v.Int(), 0), "Y-m-d H:i:s")
+					row["updateTimeFormat"] = beego.Date(time.Unix(v.Int(), 0), "Y-m-d H:i:s")
 				}
 				continue
 			}
-			if fieldName == "CreateId" || fieldName == "UpdateId" {
+			if fieldName == "createId" || fieldName == "updateId" {
 				if v.Int() > 0 {
 					if isEdit {
-						if fieldName == "CreateId" {
+						if fieldName == "createId" {
 							row[fieldName] = v.Int()
 						}
 					} else {
-						admin := new(models.Admin)
+						admin := new(models.PermissionUser)
 						admin.Id = v.Int()
 						if err := admin.Query(); err == nil {
-							if fieldName == "CreateId" {
-								row["CreateName"] = admin.Name
+							if fieldName == "createId" {
+								row["createName"] = admin.Name
 							} else {
-								row["UpdateName"] = admin.Name
+								row["updateName"] = admin.Name
 							}
 						}
 						row[fieldName] = v.Int()
@@ -288,14 +344,23 @@ func (this *BaseController) relectRow(row map[string]interface{}, v interface{},
 			row[fieldName] = v.Int()
 		case reflect.String:
 			if strings.Contains(v.String(), "static/") {
-				row["File"] = v.String()
+				if strings.Contains(v.String(), ".png") || strings.Contains(v.String(), ".jpg") {
+					row["file"] = "<img src='" + v.String() + "' />"
+				} else {
+					row["file"] = v.String()
+				}
 				this.setFileSize(row, v.String())
 			} else {
-				row[fieldName] = v.String()
+				if len(link) > 0 && !isEdit {
+					row[fieldName] = "<a href='" + link + v.String() + "?parentId=" + fmt.Sprint(parentId) + "' style='color:#6495ED;'>" + v.String() + "</a>"
+				} else {
+					row[fieldName] = v.String()
+				}
 			}
 		}
 	}
-	beego.Info("-------row:", row)
+
+	beego.Info("-------row:", row, " | isEdit:", isEdit)
 	return row
 }
 
@@ -303,25 +368,18 @@ func (this *BaseController) isPost() bool {
 	return this.Ctx.Request.Method == "POST"
 }
 
-func (this *BaseController) getClientIp() string {
+func (this *BaseController) getIp() string {
 	return this.Ctx.Input.IP()
 }
 
-func (this *BaseController) Upload() {
-	f, fh, err := this.GetFile("file")
-	defer f.Close()
-	fileName := fh.Filename
-	sufix := "default"
-	if strings.Contains(fh.Filename, ".") {
-		sufix = fileName[strings.LastIndex(fileName, ".")+1:]
+func (this *BaseController) getMac() (mac string) {
+	inter, err := net.InterfaceByName("eth0")
+	if err != nil {
+		beego.Info("err:", err)
+	} else {
+		mac = inter.HardwareAddr.String()
 	}
-	fileName = utils.Md5(this.userName+time.RubyDate+utils.GetRandomString(10)) + "_" + fmt.Sprint(time.Now().Unix()) + "." + sufix
-	toFilePath := this.upload + sufix + "/" + fileName
-	var size, resize int64
-	if err = this.SaveToFile("file", utils.GetCurrentDir(toFilePath)); err == nil && this.getFileType(fileName) == "图片" {
-		size, resize = this.compress(toFilePath)
-	}
-	this.ajaxMsgFile(toFilePath, size, resize, MSG_OK)
+	return
 }
 
 func (this *BaseController) ajaxMsgFile(msg interface{}, size, resize int64, msgNo int) {
@@ -333,29 +391,6 @@ func (this *BaseController) ajaxMsgFile(msg interface{}, size, resize int64, msg
 	this.Data["json"] = out
 	this.ServeJSON()
 	this.StopRun()
-}
-
-func (this *BaseController) getFileFormat(name string) (int64, int64, string) {
-	size, sufix := utils.FileSize(name)
-	format := new(models.Format)
-	format.Name = sufix
-	if err := format.Query(); err == nil {
-		formatType := new(models.FormatType)
-		formatType.Id = format.ParentId
-		formatType.Query()
-		return formatType.Id, size, sufix
-	}
-	return 0, size, sufix
-}
-
-func (this *BaseController) getFileType(name string) string {
-	format := new(models.Format)
-	format.Name = name[strings.LastIndex(name, ".")+1:]
-	format.Query();
-	formatType := new(models.FormatType)
-	formatType.Id = format.ParentId
-	formatType.Query()
-	return formatType.Name
 }
 
 func (this *BaseController) compress(path string) (int64, int64) {
@@ -380,85 +415,11 @@ func (this *BaseController) setFileSize(row map[string]interface{}, file string)
 	row["Size"] = size
 }
 
-func (this *BaseController) auth() {
-	arr := strings.Split(this.Ctx.GetCookie("auth"), "|")
-	beego.Info("--------------------arr:", arr)
-	this.userId = 0
-	if len(arr) == 2 {
-		idstr, psw := arr[0], arr[1]
-		userId, _ := strconv.ParseInt(idstr, 11, 64)
-		if userId > 0 {
-			admin := new(models.Admin)
-			admin.Id = userId
-			err := admin.Query()
-			if err == nil && psw == utils.Md5(this.getClientIp()+"|"+admin.Password+admin.Salt) {
-				this.userId = admin.Id
-				this.loginName = admin.Name
-				this.userName = admin.RealName
-				this.userIcon = "/static/mingzu/img/1.jpg"
-				this.isLogin = true
-				this.user = admin
-			} else {
-				beego.Error(err)
-			}
-			if strings.Contains(this.controller, "backstage") {
-				this.AdminAuth()
-			}
-			//isHashAuth := strings.Contains(this.allowUrl, this.controller+"/"+this.action)
-			//noAuth := "ajaxsave/ajaxdel/table/loginin/getnodes/start/show/ajaxapisace"
-			//isNoAuth := strings.Contains(noAuth, this.action)
-			//if isHashAuth == false && isNoAuth == false {
-			//	this.Ctx.WriteString("没有权限")
-			//	this.ajaxMsg("没有权限", MSG_ERR)
-			//	return
-			//}
-		}
-	}
-	//if this.userId == 0 && (this.controller != "login" && this.action != "loginin") {
-	//	this.redirect(beego.URLFor("LoginController.LoginIn"))
-	//}
-}
-
-func (this *BaseController) AdminAuth() {
-	filters := make([]interface{}, 0)
-	filters = append(filters, "status", 1)
-	if this.userId != 1 {
-		adminAuthIds, _ := models.RoleAuthGetByIds(this.user.RoleIds)
-		adminAuthIdArr := strings.Split(adminAuthIds, ",")
-		filters = append(filters, "id__in", adminAuthIdArr)
-	}
-	result, _ := models.AuthList(1, 100, filters...)
-	list := make([]map[string]interface{}, len(result))
-	lists := make([]map[string]interface{}, len(result))
-	allow_url := ""
-	i, j := 0, 0
-	for _, v := range result {
-		if v.Url != " " || v.Url != "/" {
-			allow_url += v.Url
-		}
-		row := make(map[string]interface{})
-		if v.Pid == 1 && v.IsShow == 1 {
-			row["Id"] = int(v.Id)
-			row["Sort"] = v.Sort
-			row["Name"] = v.Name
-			row["Url"] = v.Url
-			row["Icon"] = v.Icon
-			row["Pid"] = int(v.Pid)
-			list[i] = row
-			i++
-		}
-		if v.Pid != 1 && v.IsShow == 1 {
-			row["Id"] = int(v.Id)
-			row["Sort"] = v.Sort
-			row["Name"] = v.Name
-			row["Url"] = v.Url
-			row["Icon"] = v.Icon
-			row["Pid"] = int(v.Pid)
-			lists[j] = row
-			j++
-		}
-	}
-	this.Data["SideMenu1"] = list[:i]
-	this.Data["SideMenu2"] = lists[:j]
-	this.allowUrl = allow_url + "/index"
+func (this *BaseController) showTips(errorMsg interface{}) {
+	flash := beego.NewFlash()
+	flash.Error(fmt.Sprint(errorMsg))
+	flash.Store(&this.Controller)
+	controller, action := this.GetControllerAndAction()
+	this.Redirect(beego.URLFor(controller+"."+action), 302)
+	this.StopRun()
 }

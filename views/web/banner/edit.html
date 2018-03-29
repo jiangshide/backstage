@@ -1,11 +1,19 @@
 <div class="layui-layout layui-layout-admin" style="padding-left:40px;margin-top: 20px;">
-    {{template "comm/remarks.html" .}}
+{{template "comm/remarks.html" .}}
     <form class="layui-form" action="" method="post">
+        <div class="layui-form-item">
+            <label class="layui-form-label">专题</label>
+            <div class="layui-input-inline">
+                <input type="text" name="title" id="name" lay-verify="required" autocomplete="on" placeholder="专题名"
+                       class="layui-input" value="{{.row.title}}">
+            </div>
+            <div class="layui-form-mid layui-word-aux">*英文，中文</div>
+        </div>
         <div class="layui-form-item">
             <label class="layui-form-label">名称</label>
             <div class="layui-input-inline">
                 <input type="text" name="name" id="name" lay-verify="required" autocomplete="on" placeholder="名称"
-                       class="layui-input" value="{{.row.Name}}">
+                       class="layui-input" value="{{.row.name}}">
             </div>
             <div class="layui-form-mid layui-word-aux">*</div>
         </div>
@@ -13,7 +21,7 @@
             <label class="layui-form-label">链接</label>
             <div class="layui-input-inline">
                 <input type="text" name="link" id="link" autocomplete="on" placeholder="http://xxx" class="layui-input"
-                       value="{{.row.Link}}">
+                       value="{{.row.link}}">
             </div>
             <div class="layui-form-mid layui-word-aux">跳转页面链接地址</div>
         </div>
@@ -21,7 +29,7 @@
             <label class="layui-form-label">描述</label>
             <div class="layui-input-inline">
                 <textarea placeholder="请输入内容" name="descript" va id="descript"
-                          class="layui-textarea">{{.row.Descript}}</textarea>
+                          class="layui-textarea">{{.row.descript}}</textarea>
             </div>
             <div class="layui-form-mid layui-word-aux">备注</div>
         </div>
