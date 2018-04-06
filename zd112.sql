@@ -697,17 +697,15 @@ DROP TABLE IF EXISTS `zd_area`; #区域管理
 CREATE TABLE `zd_area` (
   `id`              BIGINT UNSIGNED    NOT NULL      AUTO_INCREMENT,
   `parent_id`       BIGINT UNSIGNED    NOT NULL      DEFAULT '0'
-  COMMENT '所属ID:0~洲,1~国家,2~省,3~市,4~地区,5~县,6~镇,7~乡,8~村,9~组,10~队',
+  COMMENT '所属ID:0~洲/洋,1~区域,2~国家,3~省,4~市,5~地区,6~县,7~镇,8~乡,9~村,10~组,11~队',
   `name`            VARCHAR(50) UNIQUE NOT NULL      DEFAULT ''
-  COMMENT '名称',
-  `name_ab`         VARCHAR(10)        NOT NULL      DEFAULT ''
-  COMMENT '名称简写',
-  `icon`            VARCHAR(100)       NOT NULL NULL DEFAULT ''
-  COMMENT 'LOGO',
-  `name_cn`         VARCHAR(50) UNIQUE NOT NULL      DEFAULT ''
-  COMMENT '代码名称~中文:中国',
+  COMMENT '名称:中国',
   `name_en`         VARCHAR(50) UNIQUE NOT NULL      DEFAULT ''
   COMMENT '代码名称~外文:china',
+  `name_ab`         VARCHAR(10)        NOT NULL      DEFAULT ''
+  COMMENT '名称英文简写:CN',
+  `icon`            VARCHAR(100)       NOT NULL NULL DEFAULT ''
+  COMMENT 'LOGO',
   `zone_code`       INT                NOT NULL      DEFAULT '0'
   COMMENT '区号:86',
   `zip_code`        INT                NOT NULL      DEFAULT '0'

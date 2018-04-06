@@ -9,6 +9,62 @@
             </div>
             <div class="layui-form-mid layui-word-aux">*英文，中文</div>
         </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">简写</label>
+            <div class="layui-input-inline">
+                <input type="text" name="nameAb" id="nameAb" lay-verify="required" autocomplete="on" placeholder="简写"
+                       class="layui-input" value="">
+            </div>
+            <div class="layui-form-mid layui-word-aux">*英文，中文</div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">中文</label>
+            <div class="layui-input-inline">
+                <input type="text" name="nameCn" id="nameCn" lay-verify="required" autocomplete="on" placeholder="中文"
+                       class="layui-input" value="">
+            </div>
+            <div class="layui-form-mid layui-word-aux">*中文</div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">英文</label>
+            <div class="layui-input-inline">
+                <input type="text" name="nameEn" id="nameEn" lay-verify="required" autocomplete="on" placeholder="英文"
+                       class="layui-input" value="">
+            </div>
+            <div class="layui-form-mid layui-word-aux">*英文</div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">区号</label>
+            <div class="layui-input-inline">
+                <input type="text" name="zoneCode" id="zoneCode" lay-verify="required" autocomplete="on" placeholder="区号"
+                       class="layui-input" value="">
+            </div>
+            <div class="layui-form-mid layui-word-aux">*北京:86</div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">邮编</label>
+            <div class="layui-input-inline">
+                <input type="text" name="zipCode" id="zipCode" lay-verify="required" autocomplete="on" placeholder="邮编"
+                       class="layui-input" value="">
+            </div>
+            <div class="layui-form-mid layui-word-aux">*北京:999001</div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">区域代码</label>
+            <div class="layui-input-inline">
+                <input type="text" name="areaCode" id="areaCode" lay-verify="required" autocomplete="on" placeholder="区域代码"
+                       class="layui-input" value="">
+            </div>
+            <div class="layui-form-mid layui-word-aux">*北京:1000</div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">时差</label>
+            <div class="layui-input-inline">
+                <input type="text" name="timeDifference" id="timeDifference" lay-verify="required" autocomplete="on" placeholder="时差"
+                       class="layui-input" value="">
+            </div>
+            <div class="layui-form-mid layui-word-aux">*北京:0</div>
+        </div>
     {{template "comm/upload.html" .}}
     </form>
 </div>

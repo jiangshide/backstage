@@ -4,7 +4,7 @@ import "github.com/astaxie/beego/orm"
 
 type Area struct {
 	Id             int64
-	ParentId       int64    //所属ID:0~洲,1~国家,2~省,3~市,4~地区,5~县,6~镇,7~乡,8~村,9~组,10~队
+	ParentId       int64  //所属ID:0~洲,1~国家,2~省,3~市,4~地区,5~县,6~镇,7~乡,8~村,9~组,10~队
 	Name           string //名称
 	NameAb         string //名称简写
 	Icon           string //Logo

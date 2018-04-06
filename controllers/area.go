@@ -38,8 +38,8 @@ func (this *AreaController) AjaxSave() {
 	area.Icon = this.getString("file", "", 0)
 	area.NameCn = this.getString("nameCn", "", 0)
 	area.NameEn = this.getString("nameEn", "", 0)
-	area.ZoneCode = this.getInt("zoneCode", 1)
-	area.ZipCode = this.getInt("zipCode", 1)
+	area.ZoneCode = this.getInt("zoneCode", 0)
+	area.ZipCode = this.getInt("zipCode", 0)
 	area.AreaCode = this.getString("areaCode", "", 0)
 	area.TimeDifference = this.getString("timeDifference", "", 0)
 	var err error
