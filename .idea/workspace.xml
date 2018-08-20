@@ -2,18 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ccfe5d0-9d49-4922-aed5-11b82f765f11" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/backstage.sql" beforeDir="false" afterPath="$PROJECT_DIR$/backstage.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backstage.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backstage_bak.sql" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/conf/app.conf" beforeDir="false" afterPath="$PROJECT_DIR$/conf/app.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/admin.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/admin.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/app.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/auth.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/base.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/base.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/role.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/role.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routers/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/routers/router.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zd112_backstage" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zd112_backstage.sql" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -49,17 +41,17 @@
       <file leaf-file-name="app.conf" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/conf/app.conf">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="34" column="19" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="19" />
+            <state relative-caret-position="441">
+              <caret line="35" column="15" selection-start-line="35" selection-start-column="15" selection-end-line="35" selection-end-column="15" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin.go" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/controllers/admin.go">
+      <file leaf-file-name="backstage.sql" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/backstage.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-138">
-              <caret line="38" column="5" lean-forward="true" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+            <state relative-caret-position="-4246">
+              <caret line="20" column="14" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -67,17 +59,17 @@
       <file leaf-file-name="backstage_bak.sql" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backstage_bak.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="22" column="62" lean-forward="true" selection-start-line="22" selection-start-column="62" selection-end-line="22" selection-end-column="62" />
+            <state relative-caret-position="-16408">
+              <caret line="54" column="206" selection-start-line="54" selection-start-column="206" selection-end-line="54" selection-end-column="206" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="backstage.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backstage.sql">
+      <file leaf-file-name="admin.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controllers/admin.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3751">
-              <caret line="53" column="34" lean-forward="true" selection-start-line="53" selection-start-column="34" selection-end-line="53" selection-end-column="34" />
+            <state relative-caret-position="-138">
+              <caret line="38" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -99,7 +91,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/controllers/user_auth.go" />
         <option value="$PROJECT_DIR$/views/permission/auth/edit.html" />
         <option value="$PROJECT_DIR$/views/permission/role/list.html" />
         <option value="$PROJECT_DIR$/controllers/user.go" />
@@ -150,6 +141,7 @@
         <option value="$PROJECT_DIR$/zd112.sql" />
         <option value="$PROJECT_DIR$/backstage_bak.sql" />
         <option value="$PROJECT_DIR$/conf/app.conf" />
+        <option value="$PROJECT_DIR$/backstage.sql" />
       </list>
     </option>
   </component>
@@ -185,11 +177,6 @@
               <item name="backstage" type="b2602c69:ProjectViewProjectNode" />
               <item name="backstage" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backstage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="backstage" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -410,34 +397,34 @@
     <entry file="file://$PROJECT_DIR$/models/area.go" />
     <entry file="file://$PROJECT_DIR$/controllers/area.go" />
     <entry file="file://$PROJECT_DIR$/zd112.sql" />
-    <entry file="file://$PROJECT_DIR$/backstage.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3751">
-          <caret line="53" column="34" lean-forward="true" selection-start-line="53" selection-start-column="34" selection-end-line="53" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backstage_bak.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="22" column="62" lean-forward="true" selection-start-line="22" selection-start-column="62" selection-end-line="22" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conf/app.conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="19" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/zd112_backstage.sql">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/admin.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-138">
-          <caret line="38" column="5" lean-forward="true" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+          <caret line="38" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backstage_bak.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-16408">
+          <caret line="54" column="206" selection-start-line="54" selection-start-column="206" selection-end-line="54" selection-end-column="206" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/app.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="35" column="15" selection-start-line="35" selection-start-column="15" selection-end-line="35" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backstage.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4246">
+          <caret line="20" column="14" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
         </state>
       </provider>
     </entry>
