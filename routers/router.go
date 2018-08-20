@@ -1,9 +1,9 @@
 package routers
 
 import (
-	"zd112_backstage/controllers"
+	"backstage/controllers"
 	"github.com/astaxie/beego"
-	"zd112_backstage/utils"
+	"backstage/utils"
 )
 
 func init() {

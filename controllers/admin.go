@@ -7,8 +7,8 @@ import (
 	"time"
 
 	"github.com/astaxie/beego"
-	"zd112_backstage/utils"
-	"zd112_backstage/models"
+	"backstage/utils"
+	"backstage/models"
 	"github.com/george518/PPGo_ApiAdmin/libs"
 )
 

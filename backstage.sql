@@ -15,10 +15,10 @@
 SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;
 
-DROP DATABASE IF EXISTS `zd112_pack`;
-CREATE  DATABASE `zd112_pack`;
+DROP DATABASE IF EXISTS `backstage`;
+CREATE  DATABASE `backstage`;
 
-USE `zd112_pack`;
+USE `backstage`;
 
 -- ----------------------------
 --  Table structure for `zd_uc_user`
