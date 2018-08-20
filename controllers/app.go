@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"pack/models"
+	"zd112_backstage/models"
 	"time"
 	"strings"
 	"github.com/astaxie/beego"

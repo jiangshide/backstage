@@ -3,7 +3,7 @@ package controllers
 import (
 	"fmt"
 	"time"
-	"pack/models"
+	"zd112_backstage/models"
 )
 
 type AuthController struct {
