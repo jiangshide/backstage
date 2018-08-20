@@ -962,7 +962,7 @@
     </table>
     <column id="240" parent="231" name="id">
       <Position>1</Position>
-      <DataType>int(11) unsigned|0</DataType>
+      <DataType>int(11) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
@@ -970,7 +970,7 @@
     <column id="241" parent="231" name="name">
       <Position>2</Position>
       <Comment>名称</Comment>
-      <DataType>varchar(25)|0</DataType>
+      <DataType>varchar(25)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -978,7 +978,7 @@
     <column id="242" parent="231" name="icon">
       <Position>3</Position>
       <Comment>LOGO</Comment>
-      <DataType>varchar(100)|0</DataType>
+      <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -986,7 +986,7 @@
     <column id="243" parent="231" name="create_id">
       <Position>4</Position>
       <Comment>创建者ID</Comment>
-      <DataType>int(11)|0</DataType>
+      <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -994,7 +994,7 @@
     <column id="244" parent="231" name="update_id">
       <Position>5</Position>
       <Comment>修改者ID</Comment>
-      <DataType>int(11)|0</DataType>
+      <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1002,7 +1002,7 @@
     <column id="245" parent="231" name="create_time">
       <Position>6</Position>
       <Comment>创建时间</Comment>
-      <DataType>int(11)|0</DataType>
+      <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1010,7 +1010,7 @@
     <column id="246" parent="231" name="update_time">
       <Position>7</Position>
       <Comment>更新时间</Comment>
-      <DataType>int(11)|0</DataType>
+      <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1031,7 +1031,7 @@
     <column id="250" parent="232" name="id">
       <Position>1</Position>
       <Comment>主键ID</Comment>
-      <DataType>bigint(20) unsigned|0</DataType>
+      <DataType>bigint(20) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
@@ -1039,7 +1039,7 @@
     <column id="251" parent="232" name="pid">
       <Position>2</Position>
       <Comment>上级ID:0~顶级菜单;</Comment>
-      <DataType>tinyint(1) unsigned|0</DataType>
+      <DataType>tinyint(1) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1047,7 +1047,7 @@
     <column id="252" parent="232" name="name">
       <Position>3</Position>
       <Comment>权限名称</Comment>
-      <DataType>varchar(20)|0</DataType>
+      <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1055,7 +1055,7 @@
     <column id="253" parent="232" name="action">
       <Position>4</Position>
       <Comment>权限Action</Comment>
-      <DataType>varchar(255)|0</DataType>
+      <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1063,7 +1063,7 @@
     <column id="254" parent="232" name="icon">
       <Position>5</Position>
       <Comment>图标</Comment>
-      <DataType>varchar(255)|0</DataType>
+      <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1071,7 +1071,7 @@
     <column id="255" parent="232" name="is_show">
       <Position>6</Position>
       <Comment>是否显示,0:隐藏,1:显示</Comment>
-      <DataType>tinyint(1) unsigned|0</DataType>
+      <DataType>tinyint(1) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1079,7 +1079,7 @@
     <column id="256" parent="232" name="create_id">
       <Position>7</Position>
       <Comment>创建者ID</Comment>
-      <DataType>bigint(20) unsigned|0</DataType>
+      <DataType>bigint(20) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1087,7 +1087,7 @@
     <column id="257" parent="232" name="update_id">
       <Position>8</Position>
       <Comment>修改者ID</Comment>
-      <DataType>bigint(20) unsigned|0</DataType>
+      <DataType>bigint(20) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1095,7 +1095,7 @@
     <column id="258" parent="232" name="create_time">
       <Position>9</Position>
       <Comment>创建时间</Comment>
-      <DataType>int(11) unsigned|0</DataType>
+      <DataType>int(11) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1103,7 +1103,7 @@
     <column id="259" parent="232" name="update_time">
       <Position>10</Position>
       <Comment>更新时间</Comment>
-      <DataType>int(11) unsigned|0</DataType>
+      <DataType>int(11) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1116,7 +1116,7 @@
     <column id="261" parent="233" name="id">
       <Position>1</Position>
       <Comment>主键ID</Comment>
-      <DataType>bigint(20) unsigned|0</DataType>
+      <DataType>bigint(20) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
@@ -1124,7 +1124,7 @@
     <column id="262" parent="233" name="name">
       <Position>2</Position>
       <Comment>角色名称</Comment>
-      <DataType>varchar(32)|0</DataType>
+      <DataType>varchar(32)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1132,7 +1132,7 @@
     <column id="263" parent="233" name="detail">
       <Position>3</Position>
       <Comment>备注</Comment>
-      <DataType>varchar(255)|0</DataType>
+      <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1140,7 +1140,7 @@
     <column id="264" parent="233" name="create_id">
       <Position>4</Position>
       <Comment>创建者ID</Comment>
-      <DataType>bigint(20) unsigned|0</DataType>
+      <DataType>bigint(20) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1148,7 +1148,7 @@
     <column id="265" parent="233" name="update_id">
       <Position>5</Position>
       <Comment>修改ID</Comment>
-      <DataType>bigint(20) unsigned|0</DataType>
+      <DataType>bigint(20) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1156,7 +1156,7 @@
     <column id="266" parent="233" name="create_time">
       <Position>6</Position>
       <Comment>创建时间</Comment>
-      <DataType>int(11) unsigned|0</DataType>
+      <DataType>int(11) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1164,7 +1164,7 @@
     <column id="267" parent="233" name="update_time">
       <Position>7</Position>
       <Comment>更新时间</Comment>
-      <DataType>int(11) unsigned|0</DataType>
+      <DataType>int(11) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1177,7 +1177,7 @@
     <column id="269" parent="234" name="id">
       <Position>1</Position>
       <Comment>主键ID</Comment>
-      <DataType>bigint(20) unsigned|0</DataType>
+      <DataType>bigint(20) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
@@ -1185,7 +1185,7 @@
     <column id="270" parent="234" name="role_id">
       <Position>2</Position>
       <Comment>角色ID</Comment>
-      <DataType>varchar(500)|0</DataType>
+      <DataType>varchar(500)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1193,7 +1193,7 @@
     <column id="271" parent="234" name="name">
       <Position>3</Position>
       <Comment>用户名</Comment>
-      <DataType>varchar(20)|0</DataType>
+      <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1201,7 +1201,7 @@
     <column id="272" parent="234" name="password">
       <Position>4</Position>
       <Comment>密码</Comment>
-      <DataType>char(32)|0</DataType>
+      <DataType>char(32)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1209,7 +1209,7 @@
     <column id="273" parent="234" name="salt">
       <Position>5</Position>
       <Comment>密码加盐</Comment>
-      <DataType>char(10)|0</DataType>
+      <DataType>char(10)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1217,7 +1217,7 @@
     <column id="274" parent="234" name="status">
       <Position>6</Position>
       <Comment>状态,0:未激活,1:已激活,2:禁用</Comment>
-      <DataType>tinyint(4)|0</DataType>
+      <DataType>tinyint(4)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1225,7 +1225,7 @@
     <column id="275" parent="234" name="create_id">
       <Position>7</Position>
       <Comment>创建者ID</Comment>
-      <DataType>bigint(20) unsigned|0</DataType>
+      <DataType>bigint(20) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1233,7 +1233,7 @@
     <column id="276" parent="234" name="update_id">
       <Position>8</Position>
       <Comment>修改者ID</Comment>
-      <DataType>bigint(20) unsigned|0</DataType>
+      <DataType>bigint(20) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1241,7 +1241,7 @@
     <column id="277" parent="234" name="create_time">
       <Position>9</Position>
       <Comment>创建时间</Comment>
-      <DataType>int(11) unsigned|0</DataType>
+      <DataType>int(11) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1249,7 +1249,7 @@
     <column id="278" parent="234" name="update_time">
       <Position>10</Position>
       <Comment>更新时间</Comment>
-      <DataType>int(11) unsigned|0</DataType>
+      <DataType>int(11) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1270,7 +1270,7 @@
     <column id="282" parent="235" name="id">
       <Position>1</Position>
       <Comment>主键ID</Comment>
-      <DataType>bigint(20) unsigned|0</DataType>
+      <DataType>bigint(20) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
@@ -1278,7 +1278,7 @@
     <column id="283" parent="235" name="role_id">
       <Position>2</Position>
       <Comment>角色ID</Comment>
-      <DataType>bigint(20) unsigned|0</DataType>
+      <DataType>bigint(20) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1286,7 +1286,7 @@
     <column id="284" parent="235" name="name">
       <Position>3</Position>
       <Comment>用户名</Comment>
-      <DataType>varchar(20)|0</DataType>
+      <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1294,7 +1294,7 @@
     <column id="285" parent="235" name="password">
       <Position>4</Position>
       <Comment>密码</Comment>
-      <DataType>char(32)|0</DataType>
+      <DataType>char(32)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1302,7 +1302,7 @@
     <column id="286" parent="235" name="salt">
       <Position>5</Position>
       <Comment>密码加盐</Comment>
-      <DataType>char(10)|0</DataType>
+      <DataType>char(10)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1310,7 +1310,7 @@
     <column id="287" parent="235" name="status">
       <Position>6</Position>
       <Comment>状态,0:未激活,1:已激活,2:禁用</Comment>
-      <DataType>tinyint(4)|0</DataType>
+      <DataType>tinyint(4)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1318,7 +1318,7 @@
     <column id="288" parent="235" name="create_id">
       <Position>7</Position>
       <Comment>创建者ID</Comment>
-      <DataType>bigint(20) unsigned|0</DataType>
+      <DataType>bigint(20) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1326,7 +1326,7 @@
     <column id="289" parent="235" name="update_id">
       <Position>8</Position>
       <Comment>修改者ID</Comment>
-      <DataType>bigint(20) unsigned|0</DataType>
+      <DataType>bigint(20) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1334,7 +1334,7 @@
     <column id="290" parent="235" name="create_time">
       <Position>9</Position>
       <Comment>创建时间</Comment>
-      <DataType>int(11) unsigned|0</DataType>
+      <DataType>int(11) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1342,7 +1342,7 @@
     <column id="291" parent="235" name="update_time">
       <Position>10</Position>
       <Comment>更新时间</Comment>
-      <DataType>int(11) unsigned|0</DataType>
+      <DataType>int(11) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1362,7 +1362,7 @@
     </key>
     <column id="295" parent="236" name="id">
       <Position>1</Position>
-      <DataType>bigint(20) unsigned|0</DataType>
+      <DataType>bigint(20) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
@@ -1370,7 +1370,7 @@
     <column id="296" parent="236" name="user_id">
       <Position>2</Position>
       <Comment>用户ID</Comment>
-      <DataType>bigint(20) unsigned|0</DataType>
+      <DataType>bigint(20) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1378,7 +1378,7 @@
     <column id="297" parent="236" name="name">
       <Position>3</Position>
       <Comment>邮件地址</Comment>
-      <DataType>varchar(200)|0</DataType>
+      <DataType>varchar(200)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1386,7 +1386,7 @@
     <column id="298" parent="236" name="code">
       <Position>4</Position>
       <Comment>邮政编码</Comment>
-      <DataType>int(11)|0</DataType>
+      <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1394,7 +1394,7 @@
     <column id="299" parent="236" name="create_id">
       <Position>5</Position>
       <Comment>创建者ID</Comment>
-      <DataType>bigint(20) unsigned|0</DataType>
+      <DataType>bigint(20) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1402,7 +1402,7 @@
     <column id="300" parent="236" name="update_id">
       <Position>6</Position>
       <Comment>修改者ID</Comment>
-      <DataType>bigint(20) unsigned|0</DataType>
+      <DataType>bigint(20) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1410,7 +1410,7 @@
     <column id="301" parent="236" name="create_time">
       <Position>7</Position>
       <Comment>创建时间</Comment>
-      <DataType>int(11) unsigned|0</DataType>
+      <DataType>int(11) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1418,7 +1418,7 @@
     <column id="302" parent="236" name="update_time">
       <Position>8</Position>
       <Comment>更新时间</Comment>
-      <DataType>int(11) unsigned|0</DataType>
+      <DataType>int(11) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1439,7 +1439,7 @@
     <column id="306" parent="237" name="id">
       <Position>1</Position>
       <Comment>主键ID</Comment>
-      <DataType>bigint(20) unsigned|0</DataType>
+      <DataType>bigint(20) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
@@ -1447,7 +1447,7 @@
     <column id="307" parent="237" name="user_id">
       <Position>2</Position>
       <Comment>用户ID</Comment>
-      <DataType>bigint(20) unsigned|0</DataType>
+      <DataType>bigint(20) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1455,7 +1455,7 @@
     <column id="308" parent="237" name="ip">
       <Position>3</Position>
       <Comment>最后登录IP</Comment>
-      <DataType>char(15)|0</DataType>
+      <DataType>char(15)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1463,7 +1463,7 @@
     <column id="309" parent="237" name="mac">
       <Position>4</Position>
       <Comment>客户端MAC地址</Comment>
-      <DataType>varchar(50)|0</DataType>
+      <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1471,7 +1471,7 @@
     <column id="310" parent="237" name="latitude">
       <Position>5</Position>
       <Comment>经度</Comment>
-      <DataType>varchar(12)|0</DataType>
+      <DataType>varchar(12)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1479,7 +1479,7 @@
     <column id="311" parent="237" name="longitude">
       <Position>6</Position>
       <Comment>纬度</Comment>
-      <DataType>varchar(12)|0</DataType>
+      <DataType>varchar(12)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1487,7 +1487,7 @@
     <column id="312" parent="237" name="device">
       <Position>7</Position>
       <Comment>使用设备名称:ios:android...</Comment>
-      <DataType>varchar(50)|0</DataType>
+      <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1495,7 +1495,7 @@
     <column id="313" parent="237" name="mode">
       <Position>8</Position>
       <Comment>机型</Comment>
-      <DataType>varchar(20)|0</DataType>
+      <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1503,7 +1503,7 @@
     <column id="314" parent="237" name="arch">
       <Position>9</Position>
       <Comment>OS架构</Comment>
-      <DataType>varchar(10)|0</DataType>
+      <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1511,14 +1511,14 @@
     <column id="315" parent="237" name="sdk_version">
       <Position>10</Position>
       <Comment>系统sdk版本</Comment>
-      <DataType>varchar(20)|0</DataType>
+      <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="316" parent="237" name="app_version">
       <Position>11</Position>
-      <DataType>varchar(10)|0</DataType>
+      <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1526,7 +1526,7 @@
     <column id="317" parent="237" name="create_id">
       <Position>12</Position>
       <Comment>创建者ID</Comment>
-      <DataType>bigint(20) unsigned|0</DataType>
+      <DataType>bigint(20) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1534,7 +1534,7 @@
     <column id="318" parent="237" name="update_id">
       <Position>13</Position>
       <Comment>修改者ID</Comment>
-      <DataType>bigint(20) unsigned|0</DataType>
+      <DataType>bigint(20) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1542,7 +1542,7 @@
     <column id="319" parent="237" name="create_time">
       <Position>14</Position>
       <Comment>创建时间</Comment>
-      <DataType>int(11) unsigned|0</DataType>
+      <DataType>int(11) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1550,7 +1550,7 @@
     <column id="320" parent="237" name="update_time">
       <Position>15</Position>
       <Comment>更新时间</Comment>
-      <DataType>int(11) unsigned|0</DataType>
+      <DataType>int(11) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1563,7 +1563,7 @@
     <column id="322" parent="238" name="id">
       <Position>1</Position>
       <Comment>主键ID</Comment>
-      <DataType>bigint(20) unsigned|0</DataType>
+      <DataType>bigint(20) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
@@ -1571,7 +1571,7 @@
     <column id="323" parent="238" name="user_id">
       <Position>2</Position>
       <Comment>用户ID</Comment>
-      <DataType>bigint(20) unsigned|0</DataType>
+      <DataType>bigint(20) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1579,7 +1579,7 @@
     <column id="324" parent="238" name="psw_intensity">
       <Position>3</Position>
       <Comment>密码强度:0~危险,1~普通,2~中等,3~安全</Comment>
-      <DataType>tinyint(1)|0</DataType>
+      <DataType>tinyint(1)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1587,7 +1587,7 @@
     <column id="325" parent="238" name="icon">
       <Position>4</Position>
       <Comment>用户头像</Comment>
-      <DataType>varchar(500)|0</DataType>
+      <DataType>varchar(500)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1595,7 +1595,7 @@
     <column id="326" parent="238" name="level">
       <Position>5</Position>
       <Comment>级别:0~普通;1~管理员,2~10文化币一级:</Comment>
-      <DataType>tinyint(4)|0</DataType>
+      <DataType>tinyint(4)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1603,7 +1603,7 @@
     <column id="327" parent="238" name="score">
       <Position>6</Position>
       <Comment>积分:</Comment>
-      <DataType>int(11)|0</DataType>
+      <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1611,7 +1611,7 @@
     <column id="328" parent="238" name="name">
       <Position>7</Position>
       <Comment>用户真实名</Comment>
-      <DataType>varchar(50)|0</DataType>
+      <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1619,7 +1619,7 @@
     <column id="329" parent="238" name="phone">
       <Position>8</Position>
       <Comment>手机号码</Comment>
-      <DataType>varchar(20)|0</DataType>
+      <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1627,7 +1627,7 @@
     <column id="330" parent="238" name="motto">
       <Position>9</Position>
       <Comment>格言</Comment>
-      <DataType>varchar(50)|0</DataType>
+      <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1635,7 +1635,7 @@
     <column id="331" parent="238" name="sex">
       <Position>10</Position>
       <Comment>性别,0:保密,1:男,1:女</Comment>
-      <DataType>tinyint(1)|0</DataType>
+      <DataType>tinyint(1)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1643,7 +1643,7 @@
     <column id="332" parent="238" name="email">
       <Position>11</Position>
       <Comment>邮箱</Comment>
-      <DataType>varchar(50)|0</DataType>
+      <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1651,7 +1651,7 @@
     <column id="333" parent="238" name="weixin">
       <Position>12</Position>
       <Comment>微信</Comment>
-      <DataType>varchar(20)|0</DataType>
+      <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1659,7 +1659,7 @@
     <column id="334" parent="238" name="qq">
       <Position>13</Position>
       <Comment>qq</Comment>
-      <DataType>varchar(20)|0</DataType>
+      <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1667,7 +1667,7 @@
     <column id="335" parent="238" name="weibo">
       <Position>14</Position>
       <Comment>WEIBO</Comment>
-      <DataType>varchar(30)|0</DataType>
+      <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1675,7 +1675,7 @@
     <column id="336" parent="238" name="address">
       <Position>15</Position>
       <Comment>常住详细地址</Comment>
-      <DataType>varchar(200)|0</DataType>
+      <DataType>varchar(200)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1683,7 +1683,7 @@
     <column id="337" parent="238" name="code">
       <Position>16</Position>
       <Comment>常住地址邮政编码</Comment>
-      <DataType>int(11)|0</DataType>
+      <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1691,7 +1691,7 @@
     <column id="338" parent="238" name="create_id">
       <Position>17</Position>
       <Comment>创建者ID</Comment>
-      <DataType>bigint(20) unsigned|0</DataType>
+      <DataType>bigint(20) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1699,7 +1699,7 @@
     <column id="339" parent="238" name="update_id">
       <Position>18</Position>
       <Comment>修改者ID</Comment>
-      <DataType>bigint(20) unsigned|0</DataType>
+      <DataType>bigint(20) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1707,7 +1707,7 @@
     <column id="340" parent="238" name="create_time">
       <Position>19</Position>
       <Comment>创建时间</Comment>
-      <DataType>int(11) unsigned|0</DataType>
+      <DataType>int(11) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1715,7 +1715,7 @@
     <column id="341" parent="238" name="update_time">
       <Position>20</Position>
       <Comment>更新时间</Comment>
-      <DataType>int(11) unsigned|0</DataType>
+      <DataType>int(11) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1727,7 +1727,7 @@
     </key>
     <column id="343" parent="239" name="id">
       <Position>1</Position>
-      <DataType>int(11) unsigned|0</DataType>
+      <DataType>int(11) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
@@ -1735,7 +1735,7 @@
     <column id="344" parent="239" name="title">
       <Position>2</Position>
       <Comment>标题</Comment>
-      <DataType>varchar(50)|0</DataType>
+      <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1743,7 +1743,7 @@
     <column id="345" parent="239" name="name">
       <Position>3</Position>
       <Comment>名称</Comment>
-      <DataType>varchar(50)|0</DataType>
+      <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1751,20 +1751,20 @@
     <column id="346" parent="239" name="link">
       <Position>4</Position>
       <Comment>跳转新页面</Comment>
-      <DataType>text|0</DataType>
+      <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="347" parent="239" name="icon">
       <Position>5</Position>
       <Comment>图片展示</Comment>
-      <DataType>varchar(100)|0</DataType>
+      <DataType>varchar(100)|0s</DataType>
       <DefaultExpression>&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="348" parent="239" name="descript">
       <Position>6</Position>
       <Comment>描述</Comment>
-      <DataType>varchar(500)|0</DataType>
+      <DataType>varchar(500)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1772,7 +1772,7 @@
     <column id="349" parent="239" name="create_id">
       <Position>7</Position>
       <Comment>创建者ID</Comment>
-      <DataType>int(11)|0</DataType>
+      <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1780,7 +1780,7 @@
     <column id="350" parent="239" name="update_id">
       <Position>8</Position>
       <Comment>修改者ID</Comment>
-      <DataType>int(11)|0</DataType>
+      <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1788,7 +1788,7 @@
     <column id="351" parent="239" name="create_time">
       <Position>9</Position>
       <Comment>创建时间</Comment>
-      <DataType>int(11)|0</DataType>
+      <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1796,7 +1796,7 @@
     <column id="352" parent="239" name="update_time">
       <Position>10</Position>
       <Comment>更新时间</Comment>
-      <DataType>int(11)|0</DataType>
+      <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
@@ -1804,7 +1804,7 @@
     <column id="353" parent="239" name="views">
       <Position>11</Position>
       <Comment>当前页面展示次数</Comment>
-      <DataType>int(11)|0</DataType>
+      <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>

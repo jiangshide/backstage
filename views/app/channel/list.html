@@ -1,0 +1,68 @@
+<div class="layui-layout layui-layout-admin" style="padding-left:20px;">
+    <div class="layui-btn-group demoTable" style="margin-top:10px;">
+        <a class="layui-btn" data-type="tabAdd" href="/app/channel/add">新增</a>
+    </div>
+    <table class="layui-table"
+           lay-data="{width:'full-10',height:'full-105',url:'/app/channel/table',page:true,id:'idTest'}"
+           lay-filter="channel">
+        <thead>
+        <tr>
+            <th lay-data="{field:'id',align:'center',width:'50',fixed:true}">ID</th>
+            <th lay-data="{field:'name',align:'center',width:'100'}">应用名称</th>
+            <th lay-data="{field:'pkg',align:'center',width:'250'}">应用包名</th>
+            <th lay-data="{field:'friendId',align:'center',width:'150'}">FriendId</th>
+            <th lay-data="{field:'channel',align:'center',width:'100'}">应用渠道</th>
+            <th lay-data="{field:'platform',align:'center',width:'100'}">平台</th>
+            <th lay-data="{field:'status',align:'center',width:'100'}">状态</th>
+            <th lay-data="{field:'createName',width:100,sort: true}">作者</th>
+            <th lay-data="{field:'createTimeFormat', width:100,sort:true}">创建时间</th>
+            <th lay-data="{field:'updateTimeFormat', width:100,sort:true}">更新时间</th>
+            <th lay-data="{fixed: 'right', width:200, align:'center', toolbar: '#bar'}">操作</th>
+        </tr>
+        </thead>
+    </table>
+    <script id="img" type="text/html">
+        <img lay-data="{{.d.file}}" width="100px" height="100px" alt="{{.d.file}}" src="{{.d.file}}"/>
+    </script>
+    <script type="text/html" id="bar">
+        <!--  <a class="layui-btn layui-btn-primary layui-btn-mini" lay-event="detail">查看</a> -->
+        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    </script>
+</div>
+<script>
+    var $;
+    layui.config({
+        base: "js/"
+    }).use(['table', 'element', 'layer', 'jquery'], function (obj) {
+        var table = layui.table;
+        var element = layui.element;
+        $ = layui.jquery;
+        table.on('tool(channel)', function (obj) {
+            var data = obj.data;
+
+            if (obj.event === 'detail') {
+
+            } else if (obj.event === 'del') {
+                layer.confirm('真的删除[' + data.name + ']么', function (index) {
+                    var jsData = {'id': data.id};
+                    $.post('{{urlfor "ChannelController.AjaxDel"}}', jsData, function (out) {
+                        if (out.status == 0) {
+                            layer.alert('删除成功', function (index) {
+                                layer.close(index);
+                                window.location.reload()
+                            })
+                        } else {
+                            layer.msg(out.message)
+                        }
+                    }, "json");
+                    obj.del();
+                    layer.close(index);
+                });
+            } else if (obj.event === 'edit') {
+                window.location.href = "/app/channel/edit?id=" + data.id
+            }
+        });
+    });
+
+</script>

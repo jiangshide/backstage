@@ -1,0 +1,133 @@
+<div class="layui-layout layui-layout-admin" style="padding-left:20px;">
+    <form class="layui-form" action="" method="post">
+        <div class="layui-input-inline">
+            <label>项目路径</label>
+            <div class="layui-input-inline">
+                <input type="text" name="project" id="project" value="/Users/glzc/developer/client/android/Android" lay-verify="required" autocomplete="on"
+                       placeholder="project"
+                       class="layui-input">
+            </div>
+            <div class="layui-input-inline">
+                <select name="channel">
+                    <option value="">请选渠道</option>
+                {{range $k,$v := .channelList}}
+                    <option value="{{$v.id}}" {{if eq $k 0}}selected{{end}}>{{$v.channel}}</option>
+                {{end}}
+                </select>
+            </div>
+            <label>版本</label>
+            <div class="layui-input-inline">
+                <input type="text" name="version" id="version" value="3.0.0.19" lay-verify="required" autocomplete="on"
+                       placeholder="version"
+                       class="layui-input">
+            </div>
+            <div class="layui-input-inline">
+                <select name="environment" aria-multiselectable="true" multiple>
+                    <option value="">请选API环境</option>
+                    <option value="stage1" selected>测试环境1</option>
+                    <option value="stage2">测试环境2</option>
+                    <option value="stage3">测试环境3</option>
+                    <option value="preproduction">准生产</option>
+                    <option value="production">生产</option>
+                </select>
+            </div>
+            <div class="layui-input-inline">
+                <select name="buildType" aria-multiselectable="true" multiple>
+                    <option value="">请选运行环境</option>
+                    <option value="Release" selected>Release</option>
+                    <option value="Debug">Debug</option>
+                </select>
+            </div>
+            <button class="layui-btn" lay-submit="" lay-filter="sub">开始打包</button>
+            <div class="layui-input-inline">
+                <label class="layui-form-label">外网</label>
+                <div class="layui-input-block">
+                    <input type="checkbox" name="isNet" id="isNet" lay-skin="switch" lay-text="ON|OFF">
+                </div>
+            </div>
+        </div>
+    </form>
+    <table class="layui-table"
+           lay-data="{width:'full-10',height:'full-105',url:'/app/table',page:true,id:'idTest'}"
+           lay-filter="app">
+        <thead>
+        <tr>
+            <th lay-data="{field:'id',align:'center',width:'50',fixed:true}">ID</th>
+            <th lay-data="{field:'name',align:'center',width:'100'}">名称</th>
+            <th lay-data="{field:'pkg',align:'center',width:'100'}">包名</th>
+            <th lay-data="{field:'friendId',align:'center',width:'100'}">FriendId</th>
+            <th lay-data="{field:'channel',align:'center',width:'100'}">渠道</th>
+            <th lay-data="{field:'version',align:'center',width:'100'}">版本</th>
+            <th lay-data="{field:'versionCode',align:'center',width:'100'}">版本号</th>
+            <th lay-data="{field:'environment',align:'center',width:'100'}">环境</th>
+            <th lay-data="{field:'status',align:'center',width:'100'}">状态</th>
+            <th lay-data="{field:'img',align:'center',width:'100',height:'100'}">二维码</th>
+            <th lay-data="{field:'file',align:'center',width:'100',height:'100'}">下载</th>
+            <th lay-data="{field:'platform',align:'center',width:'100'}">平台</th>
+            <th lay-data="{field:'createName',width:100,sort: true}">作者</th>
+            <th lay-data="{field:'createTimeFormat', width:100,sort:true}">创建时间</th>
+            <th lay-data="{field:'updateTimeFormat', width:100,sort:true}">更新时间</th>
+            <th lay-data="{fixed: 'right', width:200, align:'center', toolbar: '#bar'}">操作</th>
+        </tr>
+        </thead>
+    </table>
+    <script type="text/html" id="bar">
+        <!--  <a class="layui-btn layui-btn-primary layui-btn-mini" lay-event="detail">查看</a> -->
+        {{/*<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>*/}}
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    </script>
+</div>
+<script>
+    var $;
+    layui.config({
+        base: "js/"
+    }).use(['table', 'form', 'element', 'layer', 'jquery'], function (obj) {
+        var form = layui.form;
+        var $ = layui.jquery;
+        form.on('submit(sub)', function (data) {
+            var form_data = $("form").serialize()
+            $.post('{{urlfor "AppController.AjaxSave"}}', form_data, function (out) {
+                if (out.status == 0) {
+                    layer.msg("操作成功", {icon: 1}, function () {
+                        window.location.href = '{{urlfor "AppController.List"}}'
+                    })
+                } else {
+                    layer.msg(out.message)
+                }
+            }, "json");
+            return false
+        });
+        form.render();
+
+
+        var table = layui.table;
+        var element = layui.element;
+        $ = layui.jquery;
+        table.on('tool(app)', function (obj) {
+            var data = obj.data;
+
+            if (obj.event === 'detail') {
+
+            } else if (obj.event === 'del') {
+                layer.confirm('真的删除[' + data.name + ']么', function (index) {
+                    var jsData = {'id': data.id};
+                    $.post('{{urlfor "AppController.AjaxDel"}}', jsData, function (out) {
+                        if (out.status == 0) {
+                            layer.alert('删除成功', function (index) {
+                                layer.close(index);
+                                window.location.reload()
+                            })
+                        } else {
+                            layer.msg(out.message)
+                        }
+                    }, "json");
+                    obj.del();
+                    layer.close(index);
+                });
+            } else if (obj.event === 'edit') {
+                window.location.href = "/app/edit?id=" + data.id
+            }
+        });
+    });
+
+</script>

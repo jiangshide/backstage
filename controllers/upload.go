@@ -8,28 +8,12 @@ import (
 	"github.com/jiangshide/GoComm/utils"
 )
 
-type UploadController struct {
+type UploadController struct{
 	BaseController
 }
 
-// func (this *BaseController) Upload() {
-// 	f, fh, err := this.GetFile("file")
-// 	defer f.Close()
-// 	fileName := fh.Filename
-// 	sufix := "default"
-// 	if strings.Contains(fh.Filename, ".") {
-// 		sufix = fileName[strings.LastIndex(fileName, ".")+1:]
-// 	}
-// 	fileName = utils.Md5(this.userName+time.RubyDate+utils.GetRandomString(10)) + "_" + fmt.Sprint(time.Now().Unix()) + "." + sufix
-// 	toFilePath := this.upload + sufix + "/" + fileName
-// 	var size, resize int64
-// 	if err = this.SaveToFile("file", utils.GetCurrentDir(toFilePath)); err == nil && this.getFileType(fileName) == "图片" {
-// 		size, resize = this.compress(toFilePath)
-// 	}
-// 	this.ajaxMsgFile(toFilePath, size, resize, MSG_OK)
-// }
-
 func (this *UploadController) Upload() {
+	beego.Info("-------------upload")
 	f, fh, err := this.GetFile("file")
 	defer f.Close()
 	fileName := fh.Filename

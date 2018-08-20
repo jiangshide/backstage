@@ -1,15 +1,13 @@
 package controllers
 
-import "github.com/astaxie/beego"
-
 type HomeController struct {
 	BaseController
 }
 
-func (this *HomeController) Get() {
-	beego.Info("----------home:",this.pageSize)
+func (this *HomeController) Index() {
 	this.Data["pageTitle"] = "系统首页"
-	this.TplName = "home.html"
+	//self.display()
+	this.TplName = "public/main.html"
 }
 
 func (this *HomeController) Start() {

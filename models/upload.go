@@ -45,12 +45,12 @@ func (this *Upload) Query() error {
 	return orm.NewOrm().Read(this)
 }
 
-func (this *Upload) QueryAll() (list []*Nation, err error) {
+func (this *Upload) QueryAll() (list []*Upload, err error) {
 	orm.NewOrm().QueryTable(this.TableName()).Filter(Field(this)).All(&list)
 	return
 }
 
-func (this *Upload) List(pageSize, offSet int) (list []*Nation, total int64) {
+func (this *Upload) List(pageSize, offSet int) (list []*Upload, total int64) {
 	query := orm.NewOrm().QueryTable(this.TableName())
 	total, _ = query.Count()
 	query.OrderBy("-id").Limit(pageSize, offSet).All(&list)

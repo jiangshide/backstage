@@ -3,61 +3,60 @@ package routers
 import (
 	"zd112_backstage/controllers"
 	"github.com/astaxie/beego"
-	"time"
-	"github.com/jiangshide/GoComm/utils"
-	"strings"
+	"zd112_backstage/utils"
 )
 
 func init() {
-	beego.Router("/", &controllers.HomeController{})
+	//beego.Router("/", &controllers.ApiDocController{}, "*:Index")
+	//beego.Router("/login", &controllers.LoginController{}, "*:LoginIn")
+	//beego.Router("/login_out", &controllers.LoginController{}, "*:LoginOut")
+	//beego.Router("/no_auth", &controllers.LoginController{}, "*:NoAuth")
 
+	beego.Router("/", &controllers.HomeController{}, "*:Index")
 	beego.Router("/home/start", &controllers.HomeController{}, "*:Start")
-	beego.Router("/login", &controllers.PermissionUserController{}, "*:Login")
-	beego.Router("/reg", &controllers.PermissionUserController{}, "*:Reg")
-	beego.Router("/logOut", &controllers.PermissionUserController{}, "*:LogOut")
-	beego.Router("/user/edit", &controllers.PermissionUserController{}, "*:Edit")
-
-	beego.Router("/upload", &controllers.UploadController{}, "*:Upload")
 	beego.ErrorController(&controllers.ErrorController{})
+	beego.Router("/upload", &controllers.UploadController{}, "*:Upload")
 
-	comm()
-}
+	beego.AutoRouter(&controllers.AuthController{})
+	beego.AutoRouter(&controllers.RoleController{})
+	beego.AutoRouter(&controllers.AdminController{})
+	beego.AutoRouter(&controllers.UserController{})
 
-func comm() {
-	actionStr := "list,add,edit,table,ajaxSave,ajaxDel"
-	router := make(map[string]beego.ControllerInterface, 0)
-	router["/permission/user:"+actionStr] = &controllers.PermissionUserController{}
-	router["/permission/role:"+actionStr] = &controllers.PermissionRoleController{}
-	router["/permission/auth:"+actionStr] = &controllers.PermissionAuthContrller{}
-	router["/web/banner:"+actionStr] = &controllers.BannerController{}
-	router["/web/nav:"+actionStr] = &controllers.NavController{}
-	router["/web/nav/university:"+actionStr] = &controllers.UniversityController{}
-	router["/nation:"+actionStr] = &controllers.NationController{}
-	router["/areaCode:"+actionStr] = &controllers.AreaCodeController{}
-	router["/area:"+actionStr] = &controllers.AreaController{}
+	beego.Router("/app", &controllers.AppController{}, "*:List")
+	beego.Router("/app/table", &controllers.AppController{}, "*:Table")
+	beego.Router("/app/add", &controllers.AppController{}, "*:Add")
+	beego.Router("/app/ajaxSave", &controllers.AppController{}, "*:AjaxSave")
+	beego.Router("/app/ajaxDel", &controllers.AppController{}, "*:AjaxDel")
 
-	beego.Router("/nation/list", &controllers.NationController{}, "*:List")
-	for k, v := range router {
-		kArr := strings.Split(k, ":")
-		actions := strings.Split(kArr[1], ",")
-		for _, action := range actions {
-			rootPath := kArr[0]
-			if action != "list" {
-				rootPath += "/" + strings.ToLower(action)
-			}
-			action = "*:" + utils.StrFirstToUpper(action)
-			//beego.Info("rootPath:", rootPath, " | action:", action)
-			beego.Router(rootPath, v, action)
-		}
-	}
-}
+	beego.Router("/app/update", &controllers.UpdateController{}, "*:List")
+	beego.Router("/app/update/add", &controllers.UpdateController{}, "*:Add")
+	beego.Router("/app/update/table", &controllers.UpdateController{}, "*:Table")
+	beego.Router("/app/update/ajaxSave", &controllers.UpdateController{}, "*:AjaxSave")
+	beego.Router("/app/update/edit", &controllers.UpdateController{}, "*:Edit")
+	beego.Router("/app/update/ajaxDel", &controllers.UpdateController{}, "*:AjaxDel")
 
-func taskTime() {
-	ticker := time.NewTicker(time.Second * 5)
-	go func() {
-		for _ = range ticker.C {
-			//res, err := utils.ExecCommand("/usr/bin/git --git-dir=" + utils.GetCurrentDir("") + "/.git checkout master")
-			//beego.Info("res:", string(res), " | err:", err)
-		}
-	}()
+	beego.Router("/app/stop", &controllers.StopController{}, "*:List")
+	beego.Router("/app/stop/add", &controllers.StopController{}, "*:Add")
+	beego.Router("/app/stop/table", &controllers.StopController{}, "*:Table")
+	beego.Router("/app/stop/ajaxSave", &controllers.StopController{}, "*:AjaxSave")
+	beego.Router("/app/stop/edit", &controllers.StopController{}, "*:Edit")
+	beego.Router("/app/stop/ajaxDel", &controllers.StopController{}, "*:AjaxDel")
+
+	beego.Router("/app/channel", &controllers.ChannelController{}, "*:List")
+	beego.Router("/app/channel/add", &controllers.ChannelController{}, "*:Add")
+	beego.Router("/app/channel/table", &controllers.ChannelController{}, "*:Table")
+	beego.Router("/app/channel/ajaxSave", &controllers.ChannelController{}, "*:AjaxSave")
+	beego.Router("/app/channel/edit", &controllers.ChannelController{}, "*:Edit")
+	beego.Router("/app/channel/ajaxDel", &controllers.ChannelController{}, "*:AjaxDel")
+
+	beego.Router("/app/advert", &controllers.AdvertController{}, "*:List")
+	beego.Router("/app/advert/add", &controllers.AdvertController{}, "*:Add")
+	beego.Router("/app/advert/table", &controllers.AdvertController{}, "*:Table")
+	beego.Router("/app/advert/ajaxSave", &controllers.AdvertController{}, "*:AjaxSave")
+	beego.Router("/app/advert/edit", &controllers.AdvertController{}, "*:Edit")
+	beego.Router("/app/advert/ajaxDel", &controllers.AdvertController{}, "*:AjaxDel")
+
+	psw, salt := utils.Password(4, "")
+
+	beego.Info("--------------psw:", psw, " | salt:", salt)
 }

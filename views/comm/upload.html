@@ -1,4 +1,4 @@
-    <div class="layui-form-item">
+<div class="layui-form-item">
     <label class="layui-form-label">Icon</label>
     <div class="layui-upload-drag layui-input-inline" id="upload">
         <i class="layui-icon"></i>
@@ -8,12 +8,6 @@
         <p>点击上传,或将文件拖拽到此处</p>
     </div>
     <div class="layui-form-mid layui-word-aux">*支持格式:png|jpg</div>
-</div>
-<div class="layui-form-item">
-    <div class="layui-input-block">
-        <button class="layui-btn" lay-submit="" lay-filter="sub">添加</button>
-        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-    </div>
 </div>
 <script>
     var $;
@@ -40,7 +34,7 @@
             elem: '#upload'
             , url: '/upload'
             , accept: 'file'//'video'|'audio'
-            , size: 1024//上传最大尺寸限制kb
+            , size: 1024*1024*2//上传最大尺寸限制kb
             ,exts:'png|jpg'//只允许上传png|jpg格式图片
             ,auto:true//自动上传
             ,before:function (obj) {

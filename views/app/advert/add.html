@@ -1,0 +1,112 @@
+<div class="layui-layout" style="padding-left:40px;margin-top:20px;">
+    <div style="margin:10px 0px">
+        <blockquote class="layui-elem-quote">
+            描述:...
+        </blockquote>
+    </div>
+    <form class="layui-form" action="" method="post">
+        <div class="layui-form-item">
+            <label class="layui-form-label">广告名称</label>
+            <div class="layui-input-inline">
+                <input type="text" name="name" id="name" lay-verify="required" autocomplete="on" placeholder="名称"
+                       class="layui-input" value="">
+            </div>
+            <div class="layui-form-mid layui-word-aux">*英文，中文</div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">类型</label>
+            <div class="layui-input-inline">
+                <select name="type">
+                    <option value="">选择状态</option>
+                {{range $k,$v := .advertTypes}}
+                    <option value="{{$k}}" {{if eq $k 2}}selected="selected"{{end}}>{{$v}}</option>
+                {{end}}
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">平台</label>
+            <div class="layui-input-inline">
+                <select name="platform">
+                    <option value="">选择状态</option>
+                {{range $k,$v := .platforms}}
+                    <option value="{{$k}}" {{if eq $k 0}}selected="selected"{{end}}>{{$v}}</option>
+                {{end}}
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">价格(元)</label>
+            <div class="layui-input-inline">
+                <input type="text" name="price" id="price" lay-verify="required" autocomplete="on" placeholder="名称"
+                       onkeypress="return event.keyCode>=48&&event.keyCode<=57" ng-pattern="/[^a-zA-Z]/"
+                       class="layui-input" value="">
+            </div>
+            <div class="layui-form-mid layui-word-aux">*数字</div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">文件</label>
+            <div class="layui-input-inline">
+                <button type="button" class="layui-btn" id="url"><i class="layui-icon"></i>上传文件</button>
+                <input type="hidden" name="file" id="file" lay-verify="required" autocomplete="off"
+                       class="layui-input">
+            </div>
+            <div class="layui-form-mid layui-word-aux">*支持:png|jpg|jpeg|mp4|3gp(录制时需要音频参数需改为AAC-lc,如果默认是AMR在IOS不能播放)
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">状态</label>
+            <div class="layui-input-inline">
+                <select name="status">
+                    <option value="">选择状态</option>
+                {{range $k,$v := .statuss}}
+                    <option value="{{$k}}" {{if eq $k 1}}selected="selected"{{end}}>{{$v}}</option>
+                {{end}}
+                </select>
+            </div>
+            <div class="layui-form-mid layui-word-aux">*默认正常</div>
+        </div>
+    {{template "comm/submit.html" .}}
+    </form>
+</div>
+<script>
+    var $;
+    layui.config({
+        base: "js/"
+    }).use(['form', 'element', 'layer', 'jquery', 'upload'], function () {
+        var $ = layui.jquery
+                , upload = layui.upload;
+        upload.render({
+            elem: '#url'
+            , url: '/upload'
+            , accept: 'file' //普通文件
+            , exts: 'png|jpg|jpeg|mp4|3gp'
+            , multiple: 'false'
+            , done: function (res) {
+                console.log(res)
+                if (res.code > 0) {
+                    return layer.msg('上传失败!')
+                }
+                $('#file').attr('value', res.message)
+                layer.msg('上传成功!')
+            }
+        });
+
+        var form = layui.form;
+        var $ = layui.jquery;
+        form.on('submit(sub)', function (data) {
+            var form_data = $("form").serialize()
+            $.post('{{urlfor "AdvertController.AjaxSave"}}', form_data, function (out) {
+                if (out.status == 0) {
+                    layer.msg("操作成功", {icon: 1}, function () {
+                        window.location.href = '{{urlfor "AdvertController.List"}}'
+                    })
+                } else {
+                    layer.msg(out.message)
+                }
+            }, "json");
+            return false
+        });
+        form.render();
+    });
+</script>

@@ -1,9 +1,9 @@
 package main
 
 import (
-	_ "zd112_backstage/routers"
+	_ "pack/routers"
 	"github.com/astaxie/beego"
-	"zd112_backstage/models"
+	"pack/models"
 )
 
 func main() {

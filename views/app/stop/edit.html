@@ -1,0 +1,79 @@
+<div class="layui-layout" style="padding-left:40px;margin-top:20px;">
+    <div style="margin:10px 0px">
+        <blockquote class="layui-elem-quote">
+            描述:...
+        </blockquote>
+    </div>
+    <form class="layui-form" action="" method="post">
+        <div class="layui-form-item">
+            <label class="layui-form-label">停服标题</label>
+            <div class="layui-input-inline">
+                <select name="name">
+                    <option value="">选择应用</option>
+                    {{$app := .app}}
+                {{range $k,$v := .apps}}
+                    <option value="{{$v.Name}}" {{if eq $v.Name $app}}selected="selected"{{end}}>{{$v.Name}}</option>
+                {{end}}
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">针对渠道</label>
+            <div class="layui-input-inline">
+                <input type="text" name="channel" id="channel" autocomplete="on" placeholder="名称"
+                       class="layui-input" value="{{.Channel}}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">针对版本</label>
+            <div class="layui-input-inline">
+                <input type="text" name="version" id="version" autocomplete="on" placeholder="名称"
+                       class="layui-input" value="{{.Version}}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">Url</label>
+            <div class="layui-input-inline">
+                <input type="text" name="url" id="url" lay-verify="required" autocomplete="on" placeholder="名称"
+                       class="layui-input" value="{{.Url}}">
+            </div>
+            <div class="layui-form-mid layui-word-aux">*英文，中文</div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">平台</label>
+            <div class="layui-input-inline">
+                <select name="platform">
+                    <option value="">选择状态</option>
+                {{$platform := .platform}}
+                {{range $k,$v := .platforms}}
+                    <option value="{{$k}}" {{if eq $k $platform}}selected="selected"{{end}}>{{$v}}</option>
+                {{end}}
+                </select>
+            </div>
+        </div>
+    {{template "comm/submit.html" .}}
+    </form>
+</div>
+<script>
+    var $;
+    layui.config({
+        base: "js/"
+    }).use(['form', 'element', 'layer', 'jquery'], function () {
+        var form = layui.form;
+        var $ = layui.jquery;
+        form.on('submit(sub)', function (data) {
+            var form_data = $("form").serialize()
+            $.post('{{urlfor "StopController.AjaxSave"}}', form_data, function (out) {
+                if (out.status == 0) {
+                    layer.msg("操作成功", {icon: 1}, function () {
+                        window.location.href = '{{urlfor "StopController.List"}}'
+                    })
+                } else {
+                    layer.msg(out.message)
+                }
+            }, "json");
+            return false
+        });
+        form.render();
+    });
+</script>

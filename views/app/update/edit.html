@@ -1,0 +1,110 @@
+<div class="layui-layout" style="padding-left:40px;margin-top:20px;">
+    <div style="margin:10px 0px">
+        <blockquote class="layui-elem-quote">
+            描述:...
+        </blockquote>
+    </div>
+    <form class="layui-form layui-col-md6" action="" method="post">
+        <div class="layui-form-item">
+            <label class="layui-form-label">应用名称</label>
+            <div class="layui-input-inline">
+                <input type="text" name="name" value="{{.Name}}" id="name" lay-verify="required" autocomplete="on"
+                       placeholder="名称"
+                       class="layui-input" value="">
+            </div>
+            <div class="layui-form-mid layui-word-aux">*英文，中文</div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">渠道</label>
+            <div class="layui-input-inline">
+                <select name="channelId">
+                    <option value="">选择渠道</option>
+                {{$channelName := .channelName}}
+                {{range $k,$v := .channelList}}
+                    <option value="{{$v.id}}" {{if eq $v.channel $channelName}}selected{{end}}>{{$v.channel}}</option>
+                {{end}}
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">版本</label>
+            <div class="layui-input-inline">
+                <input type="text" name="version" value="{{.Version}}" id="version" lay-verify="required"
+                       autocomplete="on" placeholder="版本"
+                       class="layui-input" value="">
+            </div>
+            <div class="layui-form-mid layui-word-aux">*数字:1.0</div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">文件</label>
+            <div class="layui-input-inline">
+                <button type="button" class="layui-btn" id="url"><i class="layui-icon"></i>上传文件</button>
+                <input type="hidden" value="{{.Url}}" name="url" id="file" lay-verify="required" autocomplete="off"
+                       class="layui-input">
+            </div>
+            <div class="layui-form-mid layui-word-aux">*apk</div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">更新模式</label>
+            <div class="layui-input-inline">
+                <select name="status">
+                    <option value="">选择模式</option>
+                {{$modeName := .modeName}}
+                {{range $k,$v := .status}}
+                    <option value="{{$k}}" {{if eq $k $modeName}}selected="selected"{{end}}>{{$v}}</option>
+                {{end}}
+                </select>
+            </div>
+            <div class="layui-form-mid layui-word-aux">
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">更新内容</label>
+                <div class="layui-input-block">
+                    <textarea name="content" id="content" placeholder="请输入内容"
+                              class="layui-textarea">{{.Content}}</textarea>
+                </div>
+            </div>
+            {{template "comm/submit.html" .}}
+    </form>
+</div>
+<script>
+    var $;
+    layui.config({
+        base: "js/"
+    }).use(['form', 'element', 'layer', 'jquery', 'upload'], function () {
+        var $ = layui.jquery
+                , upload = layui.upload;
+        upload.render({
+            elem: '#url'
+            , url: '/upload'
+            , accept: '*' //普通文件
+            , exts: 'apk'
+            , multiple: 'false'
+            , done: function (res) {
+                console.log(res)
+                if (res.code > 0) {
+                    return layer.msg('上传失败!')
+                }
+                $('#file').attr('value', res.message)
+                layer.msg('上传成功！')
+            }
+        });
+
+        var form = layui.form;
+        var $ = layui.jquery;
+        form.on('submit(sub)', function (data) {
+            var form_data = $("form").serialize()
+            $.post('{{urlfor "UpdateController.AjaxSave"}}', form_data, function (out) {
+                if (out.status == 0) {
+                    layer.msg("操作成功", {icon: 1}, function () {
+                        window.location.href = '{{urlfor "UpdateController.List"}}'
+                    })
+                } else {
+                    layer.msg(out.message)
+                }
+            }, "json");
+            return false
+        });
+        form.render();
+    });
+</script>
