@@ -10,6 +10,7 @@ import (
 	"time"
 	"fmt"
 	"github.com/jiangshide/tinify-go/tinify"
+	"os"
 )
 
 const (
@@ -368,6 +369,19 @@ func (this *BaseController) compress(path string) (int64, int64) {
 func (this *BaseController) setFileSize(row map[string]interface{}, file string) {
 	size, _ := utils.FileSize(file)
 	row["Size"] = size
+}
+
+func (this *BaseController) delFile(urls ...string) {
+	if len(urls) > 0 {
+		for _, url := range urls {
+			path := utils.GetCurrentDir(url)
+			if err := utils.Exist(path); err == nil {
+				if err := os.Remove(path); err != nil {
+					beego.Error(err)
+				}
+			}
+		}
+	}
 }
 
 //分组公共方法

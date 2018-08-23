@@ -1,7 +1,6 @@
 package controllers
 
 import (
-	"backstage/models"
 	"time"
 	"strings"
 	"github.com/astaxie/beego"
@@ -13,6 +12,7 @@ import (
 	"github.com/Mr4Mike4/ApkInfGo"
 	"github.com/skip2/go-qrcode"
 	"github.com/astaxie/beego/orm"
+	"backstage/models"
 )
 
 type AppController struct {
@@ -50,12 +50,13 @@ func (this *AppController) AjaxSave() {
 	channel.Id = this.getInt64("channel", 0)
 	isNet := this.getString("isNet")
 	beego.Info("----------id:", channel.Id, " | isNet:", isNet)
-	if err := channel.Query().One(&channel); err == nil {
+	if err := channel.Query().One(channel); err == nil {
 		project := this.getString("project")
 		version := this.getString("version")
 		environment := this.getString("environment")
 		buildType := this.getString("buildType")
-		this.pack(channel.Platform, project, channel.Name, channel.Pkg, channel.FriendId, channel.Channel, environment, buildType, version)
+		proguard := this.getString("proguard")
+		this.pack(channel.Platform, strconv.FormatBool(proguard == "on"),project, channel.Name, channel.Pkg, channel.FriendId, channel.Channel, environment, buildType, version)
 	} else {
 		this.ajaxMsg(err.Error(), MSG_ERR)
 	}
@@ -64,25 +65,21 @@ func (this *AppController) AjaxSave() {
 func (this *AppController) AjaxDel() {
 	app := new(models.App)
 	app.Id = this.getId()
-	if err := app.Query(); err == nil {
-		err := os.Remove(utils.GetCurrentDir("") + app.QrUrl)
-		beego.Info("-------err", err, " | url:", app.QrUrl)
-		errs := os.Remove(utils.GetCurrentDir("") + app.AppUrl)
-		beego.Info("-------errs:", errs, " | url:", app.AppUrl)
-		if _, err := app.Del(); err != nil {
-			this.ajaxMsg(err.Error(), MSG_ERR)
-		}
-		this.ajaxMsg("", MSG_OK)
-	} else {
-		this.ajaxMsg(err.Error(), MSG_ERR)
+	if err := app.Query();err != nil{
+		this.ajaxMsg(err.Error(),MSG_ERR)
 	}
+	if _,err := app.Del();err != nil{
+		this.ajaxMsg(err.Error(),MSG_ERR)
+	}
+	this.delFile(app.AppUrl,app.QrUrl)
+	this.ajaxMsg("",MSG_OK)
 }
 
 /**
 /Users/glzc/developer/gradle/gradle-4.4/bin/gradle -POUTPUT_FILE=/Users/glzc/developer/server/go/src/etongdai_web/static/app/apkUrl/ -PAPPLICATION_ID=com.stateunion.p2p.etongdai -PIS_REMOTE=true -PenableProguard=true -PAPP_NAME=易通贷理财1 -PFRINED_ID=ODM1MzEyNw== -PAPP_VERSION_NAME=3.0.18 -PAPP_VERSION_CODE=3019 -PENVIRONMENT=production -PUMENG_VALUE=test1990 -PLABLE=杰克 -PDATE= -PBUILD_SCRIPT=/Users/glzc/developer/client/android/Android/app/build.gradle assembleRelease --stacktrace   -b /Users/glzc/developer/client/android/Android/app/build.gradle
  */
 
-func (this *AppController) pack(platform int, project, name, pkg, friendId, channel, environment, buildType, version string) {
+func (this *AppController) pack(platform int,proguard, project, name, pkg, friendId, channel, environment, buildType, version string) {
 	var err error
 	gradle := "/Users/glzc/developer/gradle/gradle-4.4/bin/gradle"
 	sourceVersionCode := strings.Replace(version, ".", "", -1)
@@ -107,10 +104,9 @@ func (this *AppController) pack(platform int, project, name, pkg, friendId, chan
 	if err != nil {
 		this.ajaxMsg(err.Error(), MSG_ERR)
 	}
-	cmd := gradle + " -POUTPUT_FILE=" + utils.GetCurrentDir("/static/app/apkUrl") + " -PAPPLICATION_ID=" + pkg + " -PIS_REMOTE=true -PAPP_NAME=" + name + " -PFRINED_ID=" + friendId + " -PAPP_VERSION_NAME=" + version + " -PAPP_VERSION_CODE=" + versionCode + " -PENVIRONMENT=" + environment + " -PUMENG_VALUE=" + channel + " -PLABLE=" + author + " -PDATE=" + date + " -PBUILD_SCRIPT=" + project + "/android/app/build.gradle" +
+	cmd := gradle + " -POUTPUT_FILE=" + utils.GetCurrentDir("/static/app/apkUrl") +" -PenableProguard="+proguard+ " -PAPPLICATION_ID=" + pkg + " -PIS_REMOTE=true -PAPP_NAME=" + name + " -PFRINED_ID=" + friendId + " -PAPP_VERSION_NAME=" + version + " -PAPP_VERSION_CODE=" + versionCode + " -PENVIRONMENT=" + environment + " -PUMENG_VALUE=" + channel + " -PLABLE=" + author + " -PDATE=" + date + " -PBUILD_SCRIPT=" + project + "/android/app/build.gradle" +
 		" assemble" + buildType + " -b " + project + "/app/build.gradle"
 	app.Cmd = cmd
-	this.ajaxMsgTips("开始打包", MSG_ERR)
 	log, err := this.ExeCommand(cmd)
 	app.Log = log
 	if err != nil {
@@ -119,7 +115,7 @@ func (this *AppController) pack(platform int, project, name, pkg, friendId, chan
 		app.Update()
 		this.ajaxMsg(err.Error(), MSG_ERR)
 	}
-	err, apkName := this.copyFile(project, author, channel, version, versionCode, date, environment, buildType, "/static/app/apkUrl/")
+	err, apkName,size := this.copyFile(project, author, channel, version, versionCode, date, environment, buildType, "/static/app/apkUrl/")
 	beego.Info("-------err:", err, " | apkName:", apkName)
 	if err != nil {
 		app.ErrMsg = err.Error()
@@ -128,6 +124,7 @@ func (this *AppController) pack(platform int, project, name, pkg, friendId, chan
 		this.ajaxMsg(err.Error(), MSG_ERR)
 		//this.redirect(beego.URLFor("AppController.List"))
 	}
+	app.Size = size
 	err, qrImgPath, apkPathUrl := this.generalQrImg(apkName)
 	if err != nil {
 		app.ErrMsg = err.Error()
@@ -145,15 +142,16 @@ func (this *AppController) pack(platform int, project, name, pkg, friendId, chan
 	this.ajaxMsg("", MSG_OK)
 }
 
-func (this *AppController) copyFile(project, author, channelName, appVersion, appVersionCode, date, environment, buildType, pathSuffix string) (error, string) {
+func (this *AppController) copyFile(project, author, channelName, appVersion, appVersionCode, date, environment, buildType, pathSuffix string) (error, string,int64) {
 	apkName := "etongdai-" + author + "-android-" + channelName + "-v" + appVersion + "-" + appVersionCode + "-" + date + "-" + environment + "-" + buildType + ".apk"
 	destApk := utils.GetCurrentDir(pathSuffix) + apkName
 	sourceApk := project + "/app/build/outputs/apk/release/" + apkName
-	_, err := utils.CopyFile(destApk, sourceApk)
+	size, err := utils.CopyFile(destApk, sourceApk)
+	beego.Info("---------size:",size)
 	if err == nil {
 		os.Remove(sourceApk)
 	}
-	return err, apkName
+	return err, apkName,size
 }
 
 func (this *AppController) ExeCommand(command string) (string, error) {
@@ -215,7 +213,7 @@ func (this *UpdateController) Edit() {
 	this.pageTitle("编辑渠道")
 	update := new(models.Update)
 	update.Id = this.getId()
-	if err := update.Query().One(&update); err != nil {
+	if err := update.Query().One(update); err != nil {
 		this.ajaxMsg(err.Error(), MSG_ERR)
 	}
 	this.row(nil, update)
@@ -233,7 +231,9 @@ func (this *UpdateController) AjaxSave() {
 	beego.Info("----------url:", update.Url)
 	channel := new(models.Channel)
 	channel.Id = this.getInt64("channelId", 0)
-	errs := channel.Query().One(&channel)
+	beego.Info("-----------------id:", channel.Id)
+	errs := channel.Query().Filter("id",channel.Id).One(channel)
+	beego.Info("----------channel:",channel.Channel)
 	if errs == nil {
 		update.Channel = channel.Channel
 		update.Platform = channel.Platform
@@ -273,9 +273,13 @@ func (this *UpdateController) Table() {
 func (this *UpdateController) AjaxDel() {
 	update := new(models.Update)
 	update.Id = this.getId()
+	if err := update.Query().One(update);err != nil{
+		this.ajaxMsg(err.Error(),MSG_ERR)
+	}
 	if _, err := update.Del(); err != nil {
 		this.ajaxMsg(err.Error(), MSG_ERR)
 	}
+	this.delFile(update.Url)
 	this.ajaxMsg("", MSG_OK)
 }
 
@@ -305,8 +309,8 @@ func (this *StopController) Edit() {
 	this.pageTitle("编辑停服内容")
 	stop := new(models.Stop)
 	stop.Id = this.getId()
-	beego.Info("-------------id:",stop.Id)
-	if err := stop.Query().Filter("id",stop.Id).One(stop); err != nil {
+	beego.Info("-------------id:", stop.Id)
+	if err := stop.Query().Filter("id", stop.Id).One(stop); err != nil {
 		this.ajaxMsg(err.Error(), MSG_ERR)
 	}
 	this.row(nil, stop)
@@ -358,9 +362,13 @@ func (this *StopController) Table() {
 func (this *StopController) AjaxDel() {
 	stop := new(models.Stop)
 	stop.Id = this.getId()
+	if err := stop.Query().One(&stop);err != nil{
+		this.ajaxMsg(err.Error(),MSG_ERR)
+	}
 	if _, err := stop.Del(); err != nil {
 		this.ajaxMsg(err.Error(), MSG_ERR)
 	}
+	this.delFile(stop.Url)
 	this.ajaxMsg("", MSG_OK)
 }
 
@@ -553,8 +561,12 @@ func (this *AdvertController) Table() {
 func (this *AdvertController) AjaxDel() {
 	advert := new(models.Advert)
 	advert.Id = this.getId()
+	if err := advert.Query(); err != nil {
+		this.ajaxMsg(err.Error(), MSG_ERR);
+	}
 	if _, err := advert.Del(); err != nil {
 		this.ajaxMsg(err.Error(), MSG_ERR)
 	}
+	this.delFile(advert.Url)
 	this.ajaxMsg("", MSG_OK)
 }

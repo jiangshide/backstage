@@ -221,6 +221,7 @@ CREATE TABLE `zd_app` (
   `qr_url` VARCHAR(200) NOT NULL DEFAULT '' COMMENT '本地二维码:可扫描下载',
   `app_url` VARCHAR(200) NOT NULL DEFAULT '' COMMENT 'app本地静态地址',
   `platform` TINYINT(4)       NOT NULL DEFAULT '1' COMMENT '平台:0~无限制, 1~android, 2~ios, 3~web',
+  `size`   BIGINT UNSIGNED  NOT NULL  DEFAULT '0' COMMENT '文件尺寸',
   `create_id`   BIGINT UNSIGNED  NOT NULL  DEFAULT '0' COMMENT '创建者ID',
   `update_id`   BIGINT UNSIGNED  NOT NULL  DEFAULT '0' COMMENT '修改者ID',
   `create_time` INT(11) UNSIGNED NOT NULL  DEFAULT '0' COMMENT '创建时间',

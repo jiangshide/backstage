@@ -104,6 +104,7 @@ type App struct {
 	QrUrl       string //本地二维码:可扫描下载
 	AppUrl      string //app本地地址
 	Platform    int    //平台:0~无限制, 1~android, 2~ios, 3~web
+	Size        int64  //文件尺寸
 	CreateId    int64
 	UpdateId    int64
 	CreateTime  int64
