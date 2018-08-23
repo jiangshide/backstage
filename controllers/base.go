@@ -233,7 +233,7 @@ func (this *BaseController) relectRow(row map[string]interface{}, v interface{},
 			row[fieldName] = v.Int()
 		case reflect.String:
 			if strings.Contains(v.String(), "static/") {
-				if strings.Contains(v.String(), ".png") || strings.Contains(v.String(), ".jpg") {
+				if strings.Contains(v.String(), ".png") || strings.Contains(v.String(), ".jpg") || strings.Contains(v.String(), ".jpeg"){
 					beego.Info("----------------img:", v.String())
 					row["img"] = "<img src='" + v.String() + "' />"
 				} else {

@@ -48,6 +48,7 @@ func (this *AppController) Table() {
 func (this *AppController) AjaxSave() {
 	channel := new(models.Channel)
 	channel.Id = this.getInt64("channel", 0)
+
 	isNet := this.getString("isNet")
 	beego.Info("----------id:", channel.Id, " | isNet:", isNet)
 	if err := channel.Query().One(channel); err == nil {
@@ -426,7 +427,8 @@ func (this *ChannelController) Edit() {
 	this.pageTitle("编辑渠道")
 	channel := new(models.Channel)
 	channel.Id = this.getId()
-	if err := channel.Query().One(&channel); err != nil {
+	beego.Info("---------id:",channel.Id)
+	if err := channel.Query().Filter("id",channel.Id).One(channel); err != nil {
 		this.ajaxMsg(err.Error(), MSG_ERR)
 	}
 	this.row(nil, channel)
