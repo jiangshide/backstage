@@ -23,7 +23,7 @@ func (this *User) TableName() string {
 	return TableName("uc_user")
 }
 
-func Add(this *User) (int64, error) {
+func (this *User) Add() (int64, error) {
 	return orm.NewOrm().Insert(this)
 }
 

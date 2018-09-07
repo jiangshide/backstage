@@ -103,7 +103,7 @@ func (this *AdminController) AjaxSave() {
 		Admin.Salt = salt
 		Admin.CreateTime = time.Now().Unix()
 		Admin.CreateId = this.userId
-		if _, err := models.Add(Admin); err != nil {
+		if _, err := Admin.Add(); err != nil {
 			this.ajaxMsg(err.Error(), MSG_ERR)
 		}
 		this.ajaxMsg("", MSG_OK)
