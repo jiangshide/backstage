@@ -9,4 +9,9 @@ ID | Platform | Function |  Lnguage  | Build Status
  6  |   Block Chain | [Identification](https://github.com/jiangshide/idendification) |	Golang	| [![Build Status](https://travis-ci.org/Bilibili/ci-ijk-ffmpeg-ios.svg?branch=master)](https://github.com/jiangshide/idendification) 
  
 
-this is the pack tools for app
+## this is the pack tools for app
+
+## show pic:
+ ![Image](https://github.com/jiangshide/backstage/blob/master/img/channel.png?raw=true)
+ ![Image](https://github.com/jiangshide/backstage/blob/master/img/adv.png?raw=true)
+ 
