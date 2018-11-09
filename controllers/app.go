@@ -82,7 +82,7 @@ func (this *AppController) AjaxDel() {
 
 func (this *AppController) pack(platform int,proguard, project, name, pkg, friendId, channel, environment, buildType, version string) {
 	var err error
-	gradle := "/Users/glzc/developer/gradle/gradle-4.4/bin/gradle"
+	gradle := "/Users/glzc/developer/gradle/gradle-4.6/bin/gradle"
 	sourceVersionCode := strings.Replace(version, ".", "", -1)
 	versionCodeNum, _ := strconv.Atoi(sourceVersionCode)
 	versionCodeNum = versionCodeNum + 1
@@ -106,7 +106,7 @@ func (this *AppController) pack(platform int,proguard, project, name, pkg, frien
 		this.ajaxMsg(err.Error(), MSG_ERR)
 	}
 	cmd := gradle + " -POUTPUT_FILE=" + utils.GetCurrentDir("/static/app/apkUrl") +" -PenableProguard="+proguard+ " -PAPPLICATION_ID=" + pkg + " -PIS_REMOTE=true -PAPP_NAME=" + name + " -PFRINED_ID=" + friendId + " -PAPP_VERSION_NAME=" + version + " -PAPP_VERSION_CODE=" + versionCode + " -PENVIRONMENT=" + environment + " -PUMENG_VALUE=" + channel + " -PLABLE=" + author + " -PDATE=" + date + " -PBUILD_SCRIPT=" + project + "/android/app/build.gradle" +
-		" assemble" + buildType + " -b " + project + "/app/build.gradle"
+		" clean assemble" + buildType + " -b " + project + "/app/build.gradle"
 	app.Cmd = cmd
 	log, err := this.ExeCommand(cmd)
 	app.Log = log
